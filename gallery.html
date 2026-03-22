@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería - Barber Freestyle</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white text-gray-900">
+  <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-2xl font-bold tracking-tight">
+        <span class="text-black">Barber</span><span class="text-amber-600">Freestyle</span>
+      </a>
+      <div class="hidden md:flex gap-8 items-center">
+        <a href="index.html#servicios" class="text-sm text-gray-600 hover:text-black">Servicios</a>
+        <a href="booking.html" class="px-4 py-2 bg-amber-600 text-white rounded-lg text-sm font-medium">Agendar</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="bg-gradient-to-r from-gray-900 to-black text-white py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <h1 class="text-5xl font-bold mb-4">Nuestro Trabajo</h1>
+      <p class="text-xl text-gray-300">Explora nuestros mejores diseños freestyle, cortes, fades y trabajos de color</p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 py-20">
+    <div class="mb-12 flex flex-wrap gap-4 justify-center" id="filter-buttons">
+      <button class="filter-btn px-6 py-2 rounded-lg font-medium transition-all active" data-filter="all">
+        Todos
+      </button>
+      <button class="filter-btn px-6 py-2 rounded-lg font-medium transition-all" data-filter="freestyle">
+        Freestyle
+      </button>
+      <button class="filter-btn px-6 py-2 rounded-lg font-medium transition-all" data-filter="fades">
+        Fades
+      </button>
+      <button class="filter-btn px-6 py-2 rounded-lg font-medium transition-all" data-filter="color">
+        Color
+      </button>
+    </div>
+
+    <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-xl aspect-square shadow-lg transition-transform hover:scale-105" data-category="freestyle">
+        <div class="w-full h-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-6xl">🎨</div>
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all flex items-center justify-center">
+          <span class="text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">Diseño Freestyle</span>
+        </div>
+      </div>
+
+      <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-xl aspect-square shadow-lg transition-transform hover:scale-105" data-category="fades">
+        <div class="w-full h-full bg-gradient-to-br from-gray-400 to-gray-600 flex items-center justify-center text-6xl">✂️</div>
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all flex items-center justify-center">
+          <span class="text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">Fade Profesional</span>
+        </div>
+      </div>
+
+      <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-xl aspect-square shadow-lg transition-transform hover:scale-105" data-category="color">
+        <div class="w-full h-full bg-gradient-to-br from-purple-400 to-pink-600 flex items-center justify-center text-6xl">✨</div>
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all flex items-center justify-center">
+          <span class="text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">Coloración</span>
+        </div>
+      </div>
+
+      <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-xl aspect-square shadow-lg transition-transform hover:scale-105" data-category="freestyle">
+        <div class="w-full h-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center text-6xl">🔥</div>
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all flex items-center justify-center">
+          <span class="text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">Diseño Creativo</span>
+        </div>
+      </div>
+
+      <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-xl aspect-square shadow-lg transition-transform hover:scale-105" data-category="color">
+        <div class="w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-6xl">💙</div>
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all flex items-center justify-center">
+          <span class="text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">Color Azul</span>
+        </div>
+      </div>
+
+      <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-xl aspect-square shadow-lg transition-transform hover:scale-105" data-category="fades">
+        <div class="w-full h-full bg-gradient-to-br from-slate-400 to-slate-600 flex items-center justify-center text-6xl">🌟</div>
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all flex items-center justify-center">
+          <span class="text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">Líneas Marcadas</span>
+        </div>
+      </div>
+
+      <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-xl aspect-square shadow-lg transition-transform hover:scale-105" data-category="freestyle">
+        <div class="w-full h-full bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center text-6xl">🎭</div>
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all flex items-center justify-center">
+          <span class="text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">Arte Capilar</span>
+        </div>
+      </div>
+
+      <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-xl aspect-square shadow-lg transition-transform hover:scale-105" data-category="color">
+        <div class="w-full h-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-6xl">🌿</div>
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all flex items-center justify-center">
+          <span class="text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">Tono Natural</span>
+        </div>
+      </div>
+
+      <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-xl aspect-square shadow-lg transition-transform hover:scale-105" data-category="fades">
+        <div class="w-full h-full bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center text-6xl">💎</div>
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all flex items-center justify-center">
+          <span class="text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">Fade Premium</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="bg-gray-50 py-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">¿Te gusta lo que ves?</h2>
+      <p class="text-gray-600 mb-8 text-lg">Cada diseño es único y personalizado según el estilo de cada cliente</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="booking.html" class="px-8 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-700 transition-colors">
+          Agendar tu Diseño
+        </a>
+        <a href="https://instagram.com/barberfreestyle5" target="_blank" class="px-8 py-3 border-2 border-gray-400 text-gray-700 rounded-lg font-semibold hover:border-amber-600 hover:text-amber-600 transition-all">
+          Ver en Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-gray-400 py-12 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-white font-bold mb-4">Barber Freestyle</h3>
+        <p class="text-sm">Cortes explosivos y diseño freestyle</p>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4">Horario</h4>
+        <p class="text-sm">Lunes - Domingo: 08:00 - 18:00</p>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4">Ubicación</h4>
+        <p class="text-sm">tv. 25 # 13-66, Villavicencio</p>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4">Síguenos</h4>
+        <p class="text-sm"><a href="https://instagram.com/barberfreestyle5" class="hover:text-white">@barberfreestyle5</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="gallery.js"></script>
+</body>
+</html>

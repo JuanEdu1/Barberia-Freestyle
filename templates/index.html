@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barber Freestyle – Cortes Explosivos en Villavicencio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="bg-black text-white">
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+
+      <a href="/" class="flex items-center gap-3 group">
+        <img src="/static/images/logo.PNG" alt="Barber Freestyle" class="w-12 h-12 object-contain rounded-full" style="background:#000; box-shadow:0 0 0 2px #3B82F6, 0 0 12px rgba(59,130,246,0.4)">
+        <div>
+          <span class="font-bebas text-2xl tracking-widest text-white">BARBER</span><span class="font-bebas text-2xl tracking-widest" style="color:#F97316">FREESTYLE</span>
+          <div class="font-rajdhani text-xs tracking-widest uppercase" style="color:rgba(249,115,22,0.6)">Villavicencio · Est. 2020</div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex gap-6 items-center">
+        <a href="#servicios" class="font-rajdhani text-sm tracking-widest uppercase text-zinc-400 hover:text-white transition-colors">Servicios</a>
+        <a href="/gallery.html" class="font-rajdhani text-sm tracking-widest uppercase text-zinc-400 hover:text-white transition-colors">Galería</a>
+        <a href="#testimonios" class="font-rajdhani text-sm tracking-widest uppercase text-zinc-400 hover:text-white transition-colors">Reviews</a>
+        <a href="/booking.html" class="btn-urban px-6 py-2 font-rajdhani text-sm tracking-widest uppercase font-semibold">Agendar</a>
+      </div>
+
+      <!-- Mobile toggle -->
+      <button class="md:hidden p-2 text-zinc-400 hover:text-white" id="menu-toggle">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black/97 backdrop-blur-xl px-6 pb-6 pt-4" style="border-top:1px solid rgba(249,115,22,0.2)">
+      <a href="#servicios" class="block py-3 font-rajdhani uppercase tracking-widest text-zinc-400 hover:text-white border-b border-zinc-800">Servicios</a>
+      <a href="/gallery.html" class="block py-3 font-rajdhani uppercase tracking-widest text-zinc-400 hover:text-white border-b border-zinc-800">Galería</a>
+      <a href="#testimonios" class="block py-3 font-rajdhani uppercase tracking-widest text-zinc-400 hover:text-white border-b border-zinc-800">Reviews</a>
+      <a href="/booking.html" class="block mt-4 btn-urban text-center py-3 font-rajdhani uppercase tracking-widest font-semibold">Agendar Cita</a>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/static/images/hero_bg.png" alt="Barber Freestyle" class="w-full h-full object-cover">
+      <div class="hero-overlay absolute inset-0"></div>
+      <div class="absolute inset-0 noise-overlay opacity-25"></div>
+    </div>
+
+    <!-- Accent lines naranja del logo -->
+    <div class="absolute top-1/4 left-0 w-1 h-40 animate-pulse-slow" style="background:linear-gradient(to bottom,transparent,#F97316,transparent)"></div>
+    <div class="absolute bottom-1/4 right-0 w-1 h-40 animate-pulse-slow" style="background:linear-gradient(to bottom,transparent,#CC0000,transparent)"></div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-5xl mx-auto text-center px-4 pt-20">
+
+      <!-- Tag azul del logo -->
+      <div class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full backdrop-blur-sm bg-black/30" style="border:1px solid rgba(59,130,246,0.4)">
+        <span class="w-2 h-2 rounded-full animate-pulse" style="background:#3B82F6"></span>
+        <span class="font-rajdhani text-xs tracking-widest uppercase" style="color:#60A5FA">Villavicencio · Colombia</span>
+      </div>
+
+      <h1 class="font-bebas text-[5rem] sm:text-[8rem] leading-none tracking-wider mb-4 text-white hero-title">
+        CORTES<br><span class="hero-title-accent">EXPLOSIVOS</span>
+      </h1>
+
+      <p class="font-rajdhani text-lg sm:text-2xl text-zinc-300 mb-10 tracking-wide max-w-2xl mx-auto">
+        Diseño freestyle profesional · Corrección de cortes · Color de alta calidad
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/booking.html" class="btn-urban-lg font-bebas tracking-widest text-xl px-10 py-4">AGENDAR CITA</a>
+        <!-- Ghost azul del logo -->
+        <a href="#servicios" class="btn-ghost font-bebas tracking-widest text-xl px-10 py-4">VER SERVICIOS</a>
+      </div>
+
+      <!-- Stats -->
+      <div class="mt-16 grid grid-cols-3 gap-4 max-w-xl mx-auto">
+        <div class="stat-card p-4 text-center">
+          <div class="font-bebas text-4xl" style="color:#F97316">500+</div>
+          <div class="font-rajdhani text-xs text-zinc-500 uppercase tracking-widest">Clientes</div>
+        </div>
+        <div class="stat-card p-4 text-center" style="border-left:1px solid rgba(249,115,22,0.2);border-right:1px solid rgba(249,115,22,0.2)">
+          <div class="font-bebas text-4xl" style="color:#F97316">5★</div>
+          <div class="font-rajdhani text-xs text-zinc-500 uppercase tracking-widest">Rating</div>
+        </div>
+        <div class="stat-card p-4 text-center">
+          <div class="font-bebas text-4xl" style="color:#F97316">6+</div>
+          <div class="font-rajdhani text-xs text-zinc-500 uppercase tracking-widest">Años exp.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+      <span class="font-rajdhani text-xs text-zinc-500 uppercase tracking-widest">Explora</span>
+      <svg class="w-5 h-5" style="color:#F97316" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICES ═══ -->
+  <section id="servicios" class="py-24 px-4 relative overflow-hidden" style="background:#0c0c0e">
+    <div class="section-top-line absolute top-0 left-0 right-0"></div>
+
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-16 flex items-end justify-between flex-wrap gap-4">
+        <div>
+          <div class="font-rajdhani text-sm tracking-widest uppercase mb-2 section-label">// Nuestros servicios</div>
+          <h2 class="font-bebas text-6xl text-white tracking-wide">LO QUE HACEMOS</h2>
+        </div>
+        <a href="/services.html" class="btn-ghost-sm font-rajdhani uppercase tracking-widest text-sm px-6 py-2">Ver todos →</a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Corte Básico -->
+        <div class="service-card group relative overflow-hidden rounded-2xl transition-all duration-500" style="border:1px solid #27272a">
+          <div class="relative h-52 overflow-hidden">
+            <img src="/static/images/imagenes/corte basico.webp" alt="Corte Básico" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0" style="background:linear-gradient(to top,#09090b 0%,rgba(9,9,11,0.3) 60%,transparent 100%)"></div>
+            <div class="absolute top-4 left-4"><span class="service-tag font-rajdhani text-xs uppercase tracking-widest px-3 py-1">Básico</span></div>
+          </div>
+          <div class="p-6" style="background:#18181b">
+            <h3 class="font-bebas text-2xl tracking-wide mb-1">Corte Básico</h3>
+            <p class="text-zinc-400 text-sm font-inter mb-4">Incluye cejas y styling con productos premium</p>
+            <div class="flex items-center justify-between">
+              <span class="font-bebas text-3xl" style="color:#F97316">$30.000</span>
+              <span class="font-rajdhani text-xs text-zinc-500 uppercase tracking-widest">⏱ 25 min</span>
+            </div>
+            <div class="mt-4 h-px" style="background:linear-gradient(to right,rgba(249,115,22,0.5),transparent)"></div>
+            <a href="/booking.html" class="mt-4 block text-center btn-urban-sm font-rajdhani uppercase tracking-widest text-sm py-2">Agendar</a>
+          </div>
+        </div>
+
+        <!-- Corte + Freestyle (Popular) -->
+        <div class="service-card group relative overflow-hidden rounded-2xl transition-all duration-500 shadow-popular-glow" style="border:2px solid #F97316">
+          <div class="relative h-52 overflow-hidden">
+            <img src="/static/images/imagenes/Corte + freestyle.webp" alt="Corte + Freestyle" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0" style="background:linear-gradient(to top,#09090b 0%,rgba(9,9,11,0.3) 60%,transparent 100%)"></div>
+            <div class="absolute top-4 left-4"><span class="popular-tag font-rajdhani text-xs uppercase tracking-widest px-3 py-1">🔥 Popular</span></div>
+          </div>
+          <div class="p-6" style="background:#18181b">
+            <h3 class="font-bebas text-2xl tracking-wide mb-1">Corte + Freestyle</h3>
+            <p class="text-zinc-400 text-sm font-inter mb-4">Corte completo con diseño freestyle personalizado</p>
+            <div class="flex items-center justify-between">
+              <span class="font-bebas text-3xl" style="color:#F97316">$35.000</span>
+              <span class="font-rajdhani text-xs text-zinc-500 uppercase tracking-widest">⏱ 35 min</span>
+            </div>
+            <div class="mt-4 h-px" style="background:linear-gradient(to right,rgba(249,115,22,0.5),transparent)"></div>
+            <a href="/booking.html" class="mt-4 block text-center btn-urban-sm font-rajdhani uppercase tracking-widest text-sm py-2">Agendar</a>
+          </div>
+        </div>
+
+        <!-- Corte con Barba -->
+        <div class="service-card group relative overflow-hidden rounded-2xl transition-all duration-500" style="border:1px solid #27272a">
+          <div class="relative h-52 overflow-hidden">
+            <img src="/static/images/imagenes/Corte con barba.webp" alt="Corte con Barba" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0" style="background:linear-gradient(to top,#09090b 0%,rgba(9,9,11,0.3) 60%,transparent 100%)"></div>
+            <div class="absolute top-4 left-4"><span class="service-tag font-rajdhani text-xs uppercase tracking-widest px-3 py-1">Grooming</span></div>
+          </div>
+          <div class="p-6" style="background:#18181b">
+            <h3 class="font-bebas text-2xl tracking-wide mb-1">Corte con Barba</h3>
+            <p class="text-zinc-400 text-sm font-inter mb-4">Corte + perfilado de barba + cejas</p>
+            <div class="flex items-center justify-between">
+              <span class="font-bebas text-3xl" style="color:#F97316">$40.000</span>
+              <span class="font-rajdhani text-xs text-zinc-500 uppercase tracking-widest">⏱ 35 min</span>
+            </div>
+            <div class="mt-4 h-px" style="background:linear-gradient(to right,rgba(249,115,22,0.5),transparent)"></div>
+            <a href="/booking.html" class="mt-4 block text-center btn-urban-sm font-rajdhani uppercase tracking-widest text-sm py-2">Agendar</a>
+          </div>
+        </div>
+
+        <!-- Corte para Dama -->
+        <div class="service-card group relative overflow-hidden rounded-2xl transition-all duration-500" style="border:1px solid #27272a">
+          <div class="relative h-52 overflow-hidden">
+            <img src="/static/images/imagenes/Corte para dama.webp" alt="Corte para Dama" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0" style="background:linear-gradient(to top,#09090b 0%,rgba(9,9,11,0.3) 60%,transparent 100%)"></div>
+            <div class="absolute top-4 left-4"><span class="service-tag font-rajdhani text-xs uppercase tracking-widest px-3 py-1">Dama</span></div>
+          </div>
+          <div class="p-6" style="background:#18181b">
+            <h3 class="font-bebas text-2xl tracking-wide mb-1">Corte para Dama</h3>
+            <p class="text-zinc-400 text-sm font-inter mb-4">Corte + limpieza de cejas con cuchilla</p>
+            <div class="flex items-center justify-between">
+              <span class="font-bebas text-3xl" style="color:#F97316">$35.000</span>
+              <span class="font-rajdhani text-xs text-zinc-500 uppercase tracking-widest">⏱ 40 min</span>
+            </div>
+            <div class="mt-4 h-px" style="background:linear-gradient(to right,rgba(249,115,22,0.5),transparent)"></div>
+            <a href="/booking.html" class="mt-4 block text-center btn-urban-sm font-rajdhani uppercase tracking-widest text-sm py-2">Agendar</a>
+          </div>
+        </div>
+
+        <!-- Rayitos o Mechas -->
+        <div class="service-card group relative overflow-hidden rounded-2xl transition-all duration-500" style="border:1px solid #27272a">
+          <div class="relative h-52 overflow-hidden">
+            <img src="/static/images/imagenes/Rayitos o mechas.webp" alt="Rayitos o Mechas" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0" style="background:linear-gradient(to top,#09090b 0%,rgba(9,9,11,0.3) 60%,transparent 100%)"></div>
+            <div class="absolute top-4 left-4"><span class="service-tag font-rajdhani text-xs uppercase tracking-widest px-3 py-1">Color</span></div>
+          </div>
+          <div class="p-6" style="background:#18181b">
+            <h3 class="font-bebas text-2xl tracking-wide mb-1">Rayitos o Mechas</h3>
+            <p class="text-zinc-400 text-sm font-inter mb-4">Color profesional + cuidado y asesoría</p>
+            <div class="flex items-center justify-between">
+              <span class="font-bebas text-3xl" style="color:#F97316">$225.000+</span>
+              <span class="font-rajdhani text-xs text-zinc-500 uppercase tracking-widest">⏱ 200 min</span>
+            </div>
+            <div class="mt-4 h-px" style="background:linear-gradient(to right,rgba(249,115,22,0.5),transparent)"></div>
+            <a href="/booking.html" class="mt-4 block text-center btn-urban-sm font-rajdhani uppercase tracking-widest text-sm py-2">Consultar</a>
+          </div>
+        </div>
+
+        <!-- Asesoría Visajista -->
+        <div class="service-card group relative overflow-hidden rounded-2xl transition-all duration-500" style="border:1px solid #27272a">
+          <div class="relative h-52 overflow-hidden">
+            <img src="/static/images/imagenes/Corte + asesoria.webp" alt="Asesoría Visajista" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0" style="background:linear-gradient(to top,#09090b 0%,rgba(9,9,11,0.3) 60%,transparent 100%)"></div>
+            <div class="absolute top-4 left-4"><span class="service-tag font-rajdhani text-xs uppercase tracking-widest px-3 py-1">Premium</span></div>
+          </div>
+          <div class="p-6" style="background:#18181b">
+            <h3 class="font-bebas text-2xl tracking-wide mb-1">Asesoría Visajista</h3>
+            <p class="text-zinc-400 text-sm font-inter mb-4">Corte + asesoría completa de estilo personal</p>
+            <div class="flex items-center justify-between">
+              <span class="font-bebas text-3xl" style="color:#F97316">$60.000</span>
+              <span class="font-rajdhani text-xs text-zinc-500 uppercase tracking-widest">⏱ 60 min</span>
+            </div>
+            <div class="mt-4 h-px" style="background:linear-gradient(to right,rgba(249,115,22,0.5),transparent)"></div>
+            <a href="/booking.html" class="mt-4 block text-center btn-urban-sm font-rajdhani uppercase tracking-widest text-sm py-2">Agendar</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="section-bottom-line absolute bottom-0 left-0 right-0"></div>
+  </section>
+
+  <!-- ═══ WHY US ═══ -->
+  <section class="py-24 px-4 bg-black">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-16 text-center">
+        <div class="font-rajdhani text-sm tracking-widest uppercase mb-2 section-label">// Por qué elegirnos</div>
+        <h2 class="font-bebas text-6xl text-white tracking-wide">NUESTRA DIFERENCIA</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="feature-card p-8 rounded-2xl text-center group" style="border:1px solid #27272a">
+          <div class="text-5xl mb-6 group-hover:scale-110 transition-transform">✂️</div>
+          <h3 class="font-bebas text-2xl tracking-wide mb-3">Diseño Freestyle</h3>
+          <p class="text-zinc-400 font-inter text-sm leading-relaxed">Creamos diseños únicos y personalizados según tu estilo y personalidad</p>
+        </div>
+        <div class="feature-card feature-card-accent p-8 rounded-2xl text-center group" style="border:1px solid rgba(249,115,22,0.4)">
+          <div class="text-5xl mb-6 group-hover:scale-110 transition-transform">🎨</div>
+          <h3 class="font-bebas text-2xl tracking-wide mb-3">Color Profesional</h3>
+          <p class="text-zinc-400 font-inter text-sm leading-relaxed">Técnicas de coloración avanzada con productos de calidad premium</p>
+        </div>
+        <div class="feature-card p-8 rounded-2xl text-center group" style="border:1px solid #27272a">
+          <div class="text-5xl mb-6 group-hover:scale-110 transition-transform">⭐</div>
+          <h3 class="font-bebas text-2xl tracking-wide mb-3">Atención Personal</h3>
+          <p class="text-zinc-400 font-inter text-sm leading-relaxed">Asesoría visajista y cuidado detallado en cada servicio</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIOS ═══ -->
+  <section id="testimonios" class="py-24 px-4 relative" style="background:#0c0c0e">
+    <div class="section-top-line absolute top-0 left-0 right-0"></div>
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-16 text-center">
+        <div class="font-rajdhani text-sm tracking-widest uppercase mb-2 section-label">// Lo que dicen</div>
+        <h2 class="font-bebas text-6xl text-white tracking-wide">NUESTROS CLIENTES</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div class="testimonial-card p-8 rounded-2xl relative" style="border:1px solid #27272a">
+          <div class="absolute -top-3 left-8 font-bebas text-6xl leading-none quote-mark">"</div>
+          <div class="flex gap-1 mb-4"><span style="color:#F97316" class="text-sm">★★★★★</span></div>
+          <p class="text-zinc-300 font-inter text-sm leading-relaxed mb-6">"El servicio es excepcional. La habilidad del barbero y la atención personalizada son increíbles. Totalmente satisfecho con mi corte."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full avatar-circle flex items-center justify-center font-bebas text-lg">J</div>
+            <div>
+              <p class="font-rajdhani font-semibold text-white tracking-wide">Johan Felipe Serrano</p>
+              <p class="font-rajdhani text-xs text-zinc-500 uppercase tracking-widest">Villavicencio</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card p-8 rounded-2xl relative" style="border:1px solid rgba(249,115,22,0.2);background:rgba(249,115,22,0.04)">
+          <div class="absolute -top-3 left-8 font-bebas text-6xl leading-none quote-mark">"</div>
+          <div class="flex gap-1 mb-4"><span style="color:#F97316" class="text-sm">★★★★★</span></div>
+          <p class="text-zinc-300 font-inter text-sm leading-relaxed mb-6">"Me salvó la vida. Los mejores cortes en Villavicencio. Definitivamente recomendado para todos mis amigos."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full avatar-circle flex items-center justify-center font-bebas text-lg">J</div>
+            <div>
+              <p class="font-rajdhani font-semibold text-white tracking-wide">Juan Porros</p>
+              <p class="font-rajdhani text-xs text-zinc-500 uppercase tracking-widest">Villavicencio</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card p-8 rounded-2xl relative" style="border:1px solid #27272a">
+          <div class="absolute -top-3 left-8 font-bebas text-6xl leading-none quote-mark">"</div>
+          <div class="flex gap-1 mb-4"><span style="color:#F97316" class="text-sm">★★★★★</span></div>
+          <p class="text-zinc-300 font-inter text-sm leading-relaxed mb-6">"Experiencia positiva desde el inicio. Los detalles, la limpieza y la profesionalidad son impecables. Volveré."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full avatar-circle flex items-center justify-center font-bebas text-lg">J</div>
+            <div>
+              <p class="font-rajdhani font-semibold text-white tracking-wide">Jonathan López</p>
+              <p class="font-rajdhani text-xs text-zinc-500 uppercase tracking-widest">Villavicencio</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="section-bottom-line absolute bottom-0 left-0 right-0"></div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="py-32 px-4 bg-black relative overflow-hidden">
+    <div class="absolute inset-0 cta-bg-pattern opacity-20"></div>
+    <div class="absolute inset-0 cta-section-bg"></div>
+    <div class="relative z-10 max-w-4xl mx-auto text-center">
+      <div class="font-rajdhani text-sm tracking-widest uppercase mb-4 section-label">// Listo para tu transformación</div>
+      <h2 class="font-bebas text-7xl sm:text-8xl text-white tracking-wide mb-6">TU MEJOR<br><span style="color:#F97316">CORTE</span> TE ESPERA</h2>
+      <p class="font-inter text-zinc-400 mb-12 max-w-xl mx-auto text-lg">Agenda tu cita hoy y experimenta el arte del corte freestyle en Villavicencio</p>
+      <a href="/booking.html" class="btn-urban-lg font-bebas tracking-widest text-2xl px-14 py-5">AGENDAR AHORA</a>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="pt-16 pb-8 px-4" style="background:#0c0c0e;border-top:1px solid #27272a">
+    <div class="max-w-6xl mx-auto">
+
+      <!-- Grid info -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <img src="/static/images/logo.PNG" alt="Logo" class="w-10 h-10 rounded-full object-contain" style="background:#000;box-shadow:0 0 0 2px #3B82F6">
+            <div>
+              <div class="font-bebas text-xl tracking-widest text-white">BARBER<span style="color:#F97316">FREESTYLE</span></div>
+            </div>
+          </div>
+          <p class="font-inter text-sm text-zinc-500">Cortes explosivos y diseño freestyle en Villavicencio, Colombia.</p>
+        </div>
+        <div>
+          <h4 class="font-rajdhani font-semibold uppercase tracking-widest text-white mb-4 text-sm">Horario</h4>
+          <p class="font-inter text-sm text-zinc-500">Lunes – Domingo</p>
+          <p class="font-inter text-sm text-zinc-500">08:00 – 18:00</p>
+        </div>
+        <div>
+          <h4 class="font-rajdhani font-semibold uppercase tracking-widest text-white mb-4 text-sm">Ubicación</h4>
+          <p class="font-inter text-sm text-zinc-500">tv. 25 # 13-66</p>
+          <p class="font-inter text-sm text-zinc-500">Villavicencio, Colombia</p>
+          <a href="https://maps.google.com/?q=tv.+25+%2313-66+Villavicencio+Colombia" target="_blank"
+             class="inline-block mt-3 font-rajdhani text-xs uppercase tracking-widest transition-colors"
+             style="color:#F97316">Ver en Google Maps →</a>
+        </div>
+        <div>
+          <h4 class="font-rajdhani font-semibold uppercase tracking-widest text-white mb-4 text-sm">Síguenos</h4>
+          <a href="https://instagram.com/barberfreestyle5" target="_blank" class="font-inter text-sm text-zinc-500 hover:text-white transition-colors block mb-2">@barberfreestyle5</a>
+          <a href="tel:+573000000000" class="font-inter text-sm text-zinc-500 hover:text-white transition-colors block">WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- Mapa de ubicación -->
+      <div class="mb-10">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="font-rajdhani text-xs uppercase tracking-widest section-label">// Encuéntranos aquí</span>
+          <div class="flex-1 h-px" style="background:linear-gradient(to right,rgba(249,115,22,0.4),transparent)"></div>
+        </div>
+        <div class="relative w-full overflow-hidden rounded-2xl" style="border:1px solid rgba(249,115,22,0.25);height:300px">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.1234!2d-73.6428!3d4.1420!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3e2e3e2e3e2e3e%3A0x1234567890abcdef!2sCra.+25+%2313-66%2C+Villavicencio%2C+Meta!5e0!3m2!1ses!2sco!4v1234567890"
+            width="100%"
+            height="300"
+            style="border:0;filter:grayscale(40%) contrast(1.1) invert(0.05);display:block"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación Barber Freestyle – tv. 25 # 13-66, Villavicencio">
+          </iframe>
+          <!-- Overlay info sobre el mapa -->
+          <div class="absolute bottom-4 left-4 flex items-center gap-3 px-4 py-3 rounded-xl backdrop-blur-md"
+               style="background:rgba(9,9,11,0.85);border:1px solid rgba(249,115,22,0.3)">
+            <span style="color:#F97316" class="text-xl">📍</span>
+            <div>
+              <p class="font-bebas text-base tracking-wide text-white leading-none">Barber Freestyle</p>
+              <p class="font-inter text-xs text-zinc-400">tv. 25 # 13-66, Villavicencio</p>
+            </div>
+            <a href="https://maps.google.com/?q=tv.+25+%2313-66+Villavicencio+Colombia"
+               target="_blank"
+               class="ml-2 btn-urban-sm font-rajdhani uppercase tracking-widest text-xs px-3 py-1.5">
+              Abrir
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="pt-6 text-center" style="border-top:1px solid #27272a">
+        <p class="font-rajdhani text-xs text-zinc-600 uppercase tracking-widest">© 2026 Barber Freestyle · Todos los derechos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) navbar.classList.add('navbar-scrolled');
+      else navbar.classList.remove('navbar-scrolled');
+    });
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

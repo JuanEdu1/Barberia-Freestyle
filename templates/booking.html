@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendar Cita – Barber Freestyle</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="bg-black text-white">
+
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 navbar-scrolled transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/static/images/logo.png" alt="Logo" class="w-10 h-10 object-cover rounded-full ring-2 ring-amber-500">
+        <div>
+          <span class="text-white font-bebas text-xl tracking-widest">BARBER</span><span class="text-amber-400 font-bebas text-xl tracking-widest">FREESTYLE</span>
+        </div>
+      </a>
+      <a href="/" class="font-rajdhani text-sm tracking-widest uppercase text-gray-400 hover:text-amber-400 transition-colors">← Volver</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="relative pt-20 pb-16 px-4 bg-zinc-950 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-transparent to-black"></div>
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent"></div>
+    <div class="relative z-10 max-w-4xl mx-auto pt-12">
+      <div class="font-rajdhani text-amber-500 text-sm tracking-widest uppercase mb-3">// Reserva tu turno</div>
+      <h1 class="font-bebas text-7xl sm:text-8xl tracking-wide mb-4">AGENDAR<br><span class="text-amber-400">TU CITA</span></h1>
+      <p class="font-inter text-gray-400 text-lg">Completa el formulario y te contactaremos para confirmar tu reserva</p>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent"></div>
+  </div>
+
+  <!-- FORM -->
+  <div class="max-w-4xl mx-auto px-4 py-16">
+    <form id="booking-form" class="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 md:p-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <label class="block font-rajdhani text-xs tracking-widest uppercase text-gray-400 mb-2">Nombre Completo</label>
+          <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg" placeholder="Tu nombre">
+        </div>
+        <div>
+          <label class="block font-rajdhani text-xs tracking-widest uppercase text-gray-400 mb-2">Teléfono / WhatsApp</label>
+          <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-lg" placeholder="+57 300 000 0000">
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <label class="block font-rajdhani text-xs tracking-widest uppercase text-gray-400 mb-2">Email (opcional)</label>
+        <input type="email" name="email" class="w-full px-4 py-3 rounded-lg" placeholder="tu@email.com">
+      </div>
+
+      <div class="mb-6">
+        <label class="block font-rajdhani text-xs tracking-widest uppercase text-gray-400 mb-2">Servicio Deseado</label>
+        <select name="service" required class="w-full px-4 py-3 rounded-lg">
+          <option value="">Selecciona un servicio</option>
+          <option value="Corte Básico">Corte Básico – $30.000</option>
+          <option value="Corte + Freestyle">Corte + Freestyle – $35.000</option>
+          <option value="Corte con Barba">Corte con Barba – $40.000</option>
+          <option value="Corte para Dama">Corte para Dama – $35.000</option>
+          <option value="Corte + Freestyle Creativo">Corte + Freestyle Creativo – $40.000</option>
+          <option value="Asesoría Visajista">Asesoría Visajista – $60.000</option>
+          <option value="Rayitos o Mechas">Rayitos o Mechas – $225.000+</option>
+          <option value="Trenzados">Trenzados – $70.000+</option>
+        </select>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <label class="block font-rajdhani text-xs tracking-widest uppercase text-gray-400 mb-2">Fecha Deseada</label>
+          <input type="date" name="date" required class="w-full px-4 py-3 rounded-lg">
+        </div>
+        <div>
+          <label class="block font-rajdhani text-xs tracking-widest uppercase text-gray-400 mb-2">Hora Preferida</label>
+          <select name="time" required class="w-full px-4 py-3 rounded-lg">
+            <option value="">Selecciona una hora</option>
+            <option value="08:00">08:00 AM</option>
+            <option value="08:30">08:30 AM</option>
+            <option value="09:00">09:00 AM</option>
+            <option value="09:30">09:30 AM</option>
+            <option value="10:00">10:00 AM</option>
+            <option value="10:30">10:30 AM</option>
+            <option value="11:00">11:00 AM</option>
+            <option value="11:30">11:30 AM</option>
+            <option value="14:00">02:00 PM</option>
+            <option value="14:30">02:30 PM</option>
+            <option value="15:00">03:00 PM</option>
+            <option value="15:30">03:30 PM</option>
+            <option value="16:00">04:00 PM</option>
+            <option value="16:30">04:30 PM</option>
+            <option value="17:00">05:00 PM</option>
+            <option value="17:30">05:30 PM</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <label class="block font-rajdhani text-xs tracking-widest uppercase text-gray-400 mb-2">Observaciones</label>
+        <textarea name="notes" rows="4" class="w-full px-4 py-3 rounded-lg" placeholder="Cuéntanos si tienes algún diseño específico en mente..."></textarea>
+      </div>
+
+      <div class="mb-8 p-4 border border-amber-700/40 rounded-xl bg-amber-950/20">
+        <p class="font-inter text-sm text-amber-300/80">
+          <span class="font-semibold">📋 Nota:</span> Nos pondremos en contacto vía WhatsApp para confirmar tu cita. Horario: Lunes – Domingo, 08:00 – 18:00.
+        </p>
+      </div>
+
+      <button type="submit" class="w-full btn-urban-lg font-bebas tracking-widest text-xl py-4">
+        ENVIAR SOLICITUD DE CITA
+      </button>
+    </form>
+
+    <!-- Info cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+      <div class="p-6 bg-zinc-900 border border-zinc-800 rounded-xl text-center hover:border-amber-600/40 transition-all">
+        <div class="text-4xl mb-3">📍</div>
+        <h3 class="font-bebas text-lg tracking-wide mb-2">Ubicación</h3>
+        <p class="font-inter text-sm text-gray-500">tv. 25 # 13-66<br>Villavicencio</p>
+      </div>
+      <div class="p-6 bg-zinc-900 border border-zinc-800 rounded-xl text-center hover:border-amber-600/40 transition-all">
+        <div class="text-4xl mb-3">🕐</div>
+        <h3 class="font-bebas text-lg tracking-wide mb-2">Horario</h3>
+        <p class="font-inter text-sm text-gray-500">Lunes – Domingo<br>08:00 – 18:00</p>
+      </div>
+      <div class="p-6 bg-zinc-900 border border-zinc-800 rounded-xl text-center hover:border-amber-600/40 transition-all">
+        <div class="text-4xl mb-3">💬</div>
+        <h3 class="font-bebas text-lg tracking-wide mb-2">Contacto</h3>
+        <a href="https://instagram.com/barberfreestyle5" target="_blank" class="font-inter text-sm text-amber-400 hover:text-amber-300 transition-colors">@barberfreestyle5</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="pt-12 pb-8 px-4 mt-8" style="background:#09090b;border-top:1px solid #27272a">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        <div class="flex items-center gap-3">
+          <img src="/static/images/logo.PNG" alt="Logo" class="w-9 h-9 rounded-full object-contain" style="background:#000;box-shadow:0 0 0 2px #3B82F6">
+          <div class="font-bebas text-lg tracking-widest text-white">BARBER<span style="color:#F97316">FREESTYLE</span></div>
+        </div>
+        <div><p class="font-inter text-sm text-zinc-500">Lunes – Domingo: 08:00 – 18:00</p></div>
+        <div>
+          <p class="font-inter text-sm text-zinc-500">tv. 25 # 13-66, Villavicencio</p>
+          <a href="https://maps.google.com/?q=tv.+25+%2313-66+Villavicencio+Colombia" target="_blank"
+             class="inline-block mt-2 font-rajdhani text-xs uppercase tracking-widest transition-colors" style="color:#F97316">Ver en Maps →</a>
+        </div>
+        <div><a href="https://instagram.com/barberfreestyle5" class="font-inter text-sm text-zinc-500 hover:text-white transition-colors">@barberfreestyle5</a></div>
+      </div>
+      <!-- Mapa -->
+      <div class="mb-8">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="font-rajdhani text-xs uppercase tracking-widest section-label">// Encuéntranos aquí</span>
+          <div class="flex-1 h-px" style="background:linear-gradient(to right,rgba(249,115,22,0.4),transparent)"></div>
+        </div>
+        <div class="relative w-full overflow-hidden rounded-2xl" style="border:1px solid rgba(249,115,22,0.25);height:260px">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.1234!2d-73.6428!3d4.1420!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3e2e3e2e3e2e3e%3A0x1234567890abcdef!2sCra.+25+%2313-66%2C+Villavicencio%2C+Meta!5e0!3m2!1ses!2sco!4v1234567890"
+            width="100%" height="260"
+            style="border:0;filter:grayscale(40%) contrast(1.1);display:block"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación Barber Freestyle"></iframe>
+          <div class="absolute bottom-4 left-4 flex items-center gap-3 px-4 py-3 rounded-xl backdrop-blur-md"
+               style="background:rgba(9,9,11,0.85);border:1px solid rgba(249,115,22,0.3)">
+            <span style="color:#F97316" class="text-xl">📍</span>
+            <div>
+              <p class="font-bebas text-base tracking-wide text-white leading-none">Barber Freestyle</p>
+              <p class="font-inter text-xs text-zinc-400">tv. 25 # 13-66, Villavicencio</p>
+            </div>
+            <a href="https://maps.google.com/?q=tv.+25+%2313-66+Villavicencio+Colombia" target="_blank"
+               class="ml-2 btn-urban-sm font-rajdhani uppercase tracking-widest text-xs px-3 py-1.5">Abrir</a>
+          </div>
+        </div>
+      </div>
+      <div class="pt-6 text-center" style="border-top:1px solid #27272a">
+        <p class="font-rajdhani text-xs text-zinc-600 uppercase tracking-widest">© 2026 Barber Freestyle · Todos los derechos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/static/js/booking.js"></script>
+</body>
+</html>

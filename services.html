@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios - Barber Freestyle</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white text-gray-900">
+  <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-2xl font-bold tracking-tight">
+        <span class="text-black">Barber</span><span class="text-amber-600">Freestyle</span>
+      </a>
+      <div class="hidden md:flex gap-8 items-center">
+        <a href="index.html#servicios" class="text-sm text-gray-600 hover:text-black">Servicios</a>
+        <a href="gallery.html" class="text-sm text-gray-600 hover:text-black">Galería</a>
+        <a href="booking.html" class="px-4 py-2 bg-amber-600 text-white rounded-lg text-sm font-medium">Agendar</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="bg-gradient-to-r from-gray-900 to-black text-white py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <h1 class="text-5xl font-bold mb-4">Nuestros Servicios</h1>
+      <p class="text-xl text-gray-300">Descubre todas las opciones de corte, color y diseño que ofrecemos</p>
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 py-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-full">
+      <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-shadow">
+        <div class="h-48 bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
+          <span class="text-6xl">✂️</span>
+        </div>
+        <div class="p-8">
+          <h3 class="text-2xl font-bold mb-3">Corte Básico</h3>
+          <ul class="text-sm text-gray-600 space-y-2 mb-6">
+            <li>✓ Incluye cejas</li>
+            <li>✓ Styling con productos premium</li>
+          </ul>
+          <p class="text-3xl font-bold text-amber-600 mb-2">$30.000</p>
+          <p class="text-sm text-gray-500 mb-4">25 minutos</p>
+          <a href="booking.html" class="w-full block text-center px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium">Agendar</a>
+        </div>
+      </div>
+
+      <div class="border-2 border-amber-600 rounded-xl overflow-hidden shadow-lg">
+        <div class="h-48 bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center relative">
+          <span class="absolute top-4 right-4 bg-amber-700 text-white px-3 py-1 rounded-full text-xs font-bold">Popular</span>
+          <span class="text-6xl">🎨</span>
+        </div>
+        <div class="p-8">
+          <h3 class="text-2xl font-bold mb-3">Corte + Freestyle</h3>
+          <ul class="text-sm text-gray-600 space-y-2 mb-6">
+            <li>✓ Corte completo</li>
+            <li>✓ Diseño freestyle personalizado</li>
+            <li>✓ Cejas y styling</li>
+          </ul>
+          <p class="text-3xl font-bold text-amber-600 mb-2">$35.000</p>
+          <p class="text-sm text-gray-500 mb-4">35 minutos</p>
+          <a href="booking.html" class="w-full block text-center px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium">Agendar</a>
+        </div>
+      </div>
+
+      <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-shadow">
+        <div class="h-48 bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
+          <span class="text-6xl">💈</span>
+        </div>
+        <div class="p-8">
+          <h3 class="text-2xl font-bold mb-3">Corte con Barba</h3>
+          <ul class="text-sm text-gray-600 space-y-2 mb-6">
+            <li>✓ Corte de cabello</li>
+            <li>✓ Perfilado de barba</li>
+            <li>✓ Cejas y styling</li>
+          </ul>
+          <p class="text-3xl font-bold text-amber-600 mb-2">$40.000</p>
+          <p class="text-sm text-gray-500 mb-4">35 minutos</p>
+          <a href="booking.html" class="w-full block text-center px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium">Agendar</a>
+        </div>
+      </div>
+
+      <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-shadow">
+        <div class="h-48 bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
+          <span class="text-6xl">👩</span>
+        </div>
+        <div class="p-8">
+          <h3 class="text-2xl font-bold mb-3">Corte para Dama</h3>
+          <ul class="text-sm text-gray-600 space-y-2 mb-6">
+            <li>✓ Corte personalizado</li>
+            <li>✓ Limpieza de cejas con cuchilla</li>
+          </ul>
+          <p class="text-3xl font-bold text-amber-600 mb-2">$35.000</p>
+          <p class="text-sm text-gray-500 mb-4">40 minutos</p>
+          <a href="booking.html" class="w-full block text-center px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium">Agendar</a>
+        </div>
+      </div>
+
+      <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-shadow">
+        <div class="h-48 bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
+          <span class="text-6xl">✨</span>
+        </div>
+        <div class="p-8">
+          <h3 class="text-2xl font-bold mb-3">Rayitos o Mechas</h3>
+          <ul class="text-sm text-gray-600 space-y-2 mb-6">
+            <li>✓ Color profesional</li>
+            <li>✓ Cuidado de color</li>
+            <li>✓ Asesoría técnica</li>
+          </ul>
+          <p class="text-3xl font-bold text-amber-600 mb-2">$225.000+</p>
+          <p class="text-sm text-gray-500 mb-4">200 minutos</p>
+          <a href="booking.html" class="w-full block text-center px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium">Consultar</a>
+        </div>
+      </div>
+
+      <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-shadow">
+        <div class="h-48 bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
+          <span class="text-6xl">🎭</span>
+        </div>
+        <div class="p-8">
+          <h3 class="text-2xl font-bold mb-3">Corte + Freestyle Creativo</h3>
+          <ul class="text-sm text-gray-600 space-y-2 mb-6">
+            <li>✓ Diseño freestyle avanzado</li>
+            <li>✓ Elementos creativos</li>
+            <li>✓ Styling profesional</li>
+          </ul>
+          <p class="text-3xl font-bold text-amber-600 mb-2">$40.000</p>
+          <p class="text-sm text-gray-500 mb-4">45 minutos</p>
+          <a href="booking.html" class="w-full block text-center px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium">Agendar</a>
+        </div>
+      </div>
+
+      <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-shadow">
+        <div class="h-48 bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
+          <span class="text-6xl">👨‍💼</span>
+        </div>
+        <div class="p-8">
+          <h3 class="text-2xl font-bold mb-3">Asesoría Visajista</h3>
+          <ul class="text-sm text-gray-600 space-y-2 mb-6">
+            <li>✓ Análisis de rostro</li>
+            <li>✓ Recomendación de corte</li>
+            <li>✓ Corte + styling</li>
+          </ul>
+          <p class="text-3xl font-bold text-amber-600 mb-2">$60.000</p>
+          <p class="text-sm text-gray-500 mb-4">60 minutos</p>
+          <a href="booking.html" class="w-full block text-center px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium">Agendar</a>
+        </div>
+      </div>
+
+      <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-shadow">
+        <div class="h-48 bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
+          <span class="text-6xl">🧵</span>
+        </div>
+        <div class="p-8">
+          <h3 class="text-2xl font-bold mb-3">Trenzados</h3>
+          <ul class="text-sm text-gray-600 space-y-2 mb-6">
+            <li>✓ Trenzas personalizadas</li>
+            <li>✓ Diseño a medida</li>
+            <li>✓ Consulta incluida</li>
+          </ul>
+          <p class="text-3xl font-bold text-amber-600 mb-2">$70.000+</p>
+          <p class="text-sm text-gray-500 mb-4">150 minutos</p>
+          <a href="booking.html" class="w-full block text-center px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium">Consultar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="bg-gray-50 py-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">¿Dudas sobre algún servicio?</h2>
+      <p class="text-gray-600 mb-8">Contacta con nosotros por Instagram o WhatsApp para consultas específicas</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://instagram.com/barberfreestyle5" target="_blank" class="px-8 py-3 bg-pink-600 text-white rounded-lg font-semibold hover:bg-pink-700 transition-colors">
+          Instagram @barberfreestyle5
+        </a>
+        <a href="booking.html" class="px-8 py-3 border-2 border-amber-600 text-amber-600 rounded-lg font-semibold hover:bg-amber-600 hover:text-white transition-all">
+          Agendar Cita
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-gray-400 py-12 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-white font-bold mb-4">Barber Freestyle</h3>
+        <p class="text-sm">Cortes explosivos y diseño freestyle</p>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4">Horario</h4>
+        <p class="text-sm">Lunes - Domingo: 08:00 - 18:00</p>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4">Ubicación</h4>
+        <p class="text-sm">tv. 25 # 13-66, Villavicencio</p>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4">Contacto</h4>
+        <p class="text-sm"><a href="https://instagram.com/barberfreestyle5" class="hover:text-white">@barberfreestyle5</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería – Barber Freestyle</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="bg-black text-white">
+
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 navbar-scrolled transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/static/images/logo.png" alt="Logo" class="w-10 h-10 object-cover rounded-full ring-2 ring-amber-500">
+        <div>
+          <span class="text-white font-bebas text-xl tracking-widest">BARBER</span><span class="text-amber-400 font-bebas text-xl tracking-widest">FREESTYLE</span>
+        </div>
+      </a>
+      <div class="hidden md:flex gap-6 items-center">
+        <a href="/" class="font-rajdhani text-sm tracking-widest uppercase text-gray-300 hover:text-amber-400 transition-colors">Inicio</a>
+        <a href="/services.html" class="font-rajdhani text-sm tracking-widest uppercase text-gray-300 hover:text-amber-400 transition-colors">Servicios</a>
+        <a href="/booking.html" class="btn-urban px-5 py-2 font-rajdhani text-sm tracking-widest uppercase font-semibold">Agendar</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="relative pt-20 pb-20 px-4 bg-zinc-950 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-amber-900/15 via-transparent to-black"></div>
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent"></div>
+    <div class="relative z-10 max-w-6xl mx-auto pt-12">
+      <div class="font-rajdhani text-amber-500 text-sm tracking-widest uppercase mb-3">// Portfolio</div>
+      <h1 class="font-bebas text-7xl sm:text-8xl tracking-wide mb-4">NUESTRO<br><span class="text-amber-400">TRABAJO</span></h1>
+      <p class="font-inter text-gray-400 text-lg max-w-2xl">Explora nuestros mejores diseños freestyle, cortes, fades y trabajos de color</p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 py-16">
+    <div class="mb-12 flex flex-wrap gap-3 justify-center" id="filter-buttons">
+      <button class="filter-btn px-6 py-2.5 rounded font-medium transition-all active" data-filter="all">Todos</button>
+      <button class="filter-btn px-6 py-2.5 rounded font-medium transition-all" data-filter="freestyle">Freestyle</button>
+      <button class="filter-btn px-6 py-2.5 rounded font-medium transition-all" data-filter="fades">Fades</button>
+      <button class="filter-btn px-6 py-2.5 rounded font-medium transition-all" data-filter="color">Color</button>
+    </div>
+
+    <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-xl aspect-square shadow-lg transition-transform hover:scale-[1.03]" data-category="freestyle">
+        <div class="w-full h-full bg-gradient-to-br from-amber-900 via-amber-700 to-amber-500 flex items-center justify-center text-7xl">🎨</div>
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all flex items-end p-5">
+          <div class="opacity-0 group-hover:opacity-100 transition-all translate-y-3 group-hover:translate-y-0">
+            <span class="font-bebas text-xl tracking-wide text-white">Diseño Freestyle</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-xl aspect-square shadow-lg transition-transform hover:scale-[1.03]" data-category="fades">
+        <div class="w-full h-full bg-gradient-to-br from-zinc-700 via-zinc-500 to-zinc-400 flex items-center justify-center text-7xl">✂️</div>
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all flex items-end p-5">
+          <div class="opacity-0 group-hover:opacity-100 transition-all translate-y-3 group-hover:translate-y-0">
+            <span class="font-bebas text-xl tracking-wide text-white">Fade Profesional</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-xl aspect-square shadow-lg transition-transform hover:scale-[1.03]" data-category="color">
+        <div class="w-full h-full bg-gradient-to-br from-purple-900 via-pink-700 to-rose-500 flex items-center justify-center text-7xl">✨</div>
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all flex items-end p-5">
+          <div class="opacity-0 group-hover:opacity-100 transition-all translate-y-3 group-hover:translate-y-0">
+            <span class="font-bebas text-xl tracking-wide text-white">Coloración</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-xl aspect-square shadow-lg transition-transform hover:scale-[1.03]" data-category="freestyle">
+        <div class="w-full h-full bg-gradient-to-br from-orange-900 via-yellow-700 to-yellow-400 flex items-center justify-center text-7xl">🔥</div>
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all flex items-end p-5">
+          <div class="opacity-0 group-hover:opacity-100 transition-all translate-y-3 group-hover:translate-y-0">
+            <span class="font-bebas text-xl tracking-wide text-white">Diseño Creativo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-xl aspect-square shadow-lg transition-transform hover:scale-[1.03]" data-category="color">
+        <div class="w-full h-full bg-gradient-to-br from-blue-900 via-blue-600 to-blue-400 flex items-center justify-center text-7xl">💙</div>
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all flex items-end p-5">
+          <div class="opacity-0 group-hover:opacity-100 transition-all translate-y-3 group-hover:translate-y-0">
+            <span class="font-bebas text-xl tracking-wide text-white">Color Azul</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-xl aspect-square shadow-lg transition-transform hover:scale-[1.03]" data-category="fades">
+        <div class="w-full h-full bg-gradient-to-br from-slate-800 via-slate-600 to-slate-400 flex items-center justify-center text-7xl">🌟</div>
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all flex items-end p-5">
+          <div class="opacity-0 group-hover:opacity-100 transition-all translate-y-3 group-hover:translate-y-0">
+            <span class="font-bebas text-xl tracking-wide text-white">Líneas Marcadas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-xl aspect-square shadow-lg transition-transform hover:scale-[1.03]" data-category="freestyle">
+        <div class="w-full h-full bg-gradient-to-br from-red-900 via-red-700 to-red-500 flex items-center justify-center text-7xl">🎭</div>
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all flex items-end p-5">
+          <div class="opacity-0 group-hover:opacity-100 transition-all translate-y-3 group-hover:translate-y-0">
+            <span class="font-bebas text-xl tracking-wide text-white">Arte Capilar</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-xl aspect-square shadow-lg transition-transform hover:scale-[1.03]" data-category="color">
+        <div class="w-full h-full bg-gradient-to-br from-green-900 via-green-600 to-emerald-400 flex items-center justify-center text-7xl">🌿</div>
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all flex items-end p-5">
+          <div class="opacity-0 group-hover:opacity-100 transition-all translate-y-3 group-hover:translate-y-0">
+            <span class="font-bebas text-xl tracking-wide text-white">Tono Natural</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-xl aspect-square shadow-lg transition-transform hover:scale-[1.03]" data-category="fades">
+        <div class="w-full h-full bg-gradient-to-br from-indigo-900 via-indigo-600 to-violet-400 flex items-center justify-center text-7xl">💎</div>
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all flex items-end p-5">
+          <div class="opacity-0 group-hover:opacity-100 transition-all translate-y-3 group-hover:translate-y-0">
+            <span class="font-bebas text-xl tracking-wide text-white">Fade Premium</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="bg-zinc-950 py-20 px-4 relative">
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent"></div>
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="font-rajdhani text-amber-500 text-sm tracking-widest uppercase mb-3">// ¿Te gustó?</div>
+      <h2 class="font-bebas text-5xl mb-4">AGENDA TU DISEÑO</h2>
+      <p class="font-inter text-gray-400 mb-10">Cada diseño es único y personalizado según el estilo de cada cliente</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/booking.html" class="btn-urban-lg font-bebas tracking-widest text-lg px-10 py-4">Agendar Diseño</a>
+        <a href="https://instagram.com/barberfreestyle5" target="_blank" class="btn-ghost font-bebas tracking-widest text-lg px-10 py-4">Ver en Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="pt-12 pb-8 px-4" style="background:#09090b;border-top:1px solid #27272a">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        <div class="flex items-center gap-3">
+          <img src="/static/images/logo.PNG" alt="Logo" class="w-9 h-9 rounded-full object-contain" style="background:#000;box-shadow:0 0 0 2px #3B82F6">
+          <div class="font-bebas text-lg tracking-widest text-white">BARBER<span style="color:#F97316">FREESTYLE</span></div>
+        </div>
+        <div><p class="font-inter text-sm text-zinc-500">Lunes – Domingo: 08:00 – 18:00</p></div>
+        <div>
+          <p class="font-inter text-sm text-zinc-500">tv. 25 # 13-66, Villavicencio</p>
+          <a href="https://maps.google.com/?q=tv.+25+%2313-66+Villavicencio+Colombia" target="_blank"
+             class="inline-block mt-2 font-rajdhani text-xs uppercase tracking-widest transition-colors" style="color:#F97316">Ver en Maps →</a>
+        </div>
+        <div><a href="https://instagram.com/barberfreestyle5" class="font-inter text-sm text-zinc-500 hover:text-white transition-colors">@barberfreestyle5</a></div>
+      </div>
+      <!-- Mapa -->
+      <div class="mb-8">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="font-rajdhani text-xs uppercase tracking-widest section-label">// Encuéntranos aquí</span>
+          <div class="flex-1 h-px" style="background:linear-gradient(to right,rgba(249,115,22,0.4),transparent)"></div>
+        </div>
+        <div class="relative w-full overflow-hidden rounded-2xl" style="border:1px solid rgba(249,115,22,0.25);height:260px">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.1234!2d-73.6428!3d4.1420!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3e2e3e2e3e2e3e%3A0x1234567890abcdef!2sCra.+25+%2313-66%2C+Villavicencio%2C+Meta!5e0!3m2!1ses!2sco!4v1234567890"
+            width="100%" height="260"
+            style="border:0;filter:grayscale(40%) contrast(1.1);display:block"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación Barber Freestyle"></iframe>
+          <div class="absolute bottom-4 left-4 flex items-center gap-3 px-4 py-3 rounded-xl backdrop-blur-md"
+               style="background:rgba(9,9,11,0.85);border:1px solid rgba(249,115,22,0.3)">
+            <span style="color:#F97316" class="text-xl">📍</span>
+            <div>
+              <p class="font-bebas text-base tracking-wide text-white leading-none">Barber Freestyle</p>
+              <p class="font-inter text-xs text-zinc-400">tv. 25 # 13-66, Villavicencio</p>
+            </div>
+            <a href="https://maps.google.com/?q=tv.+25+%2313-66+Villavicencio+Colombia" target="_blank"
+               class="ml-2 btn-urban-sm font-rajdhani uppercase tracking-widest text-xs px-3 py-1.5">Abrir</a>
+          </div>
+        </div>
+      </div>
+      <div class="pt-6 text-center" style="border-top:1px solid #27272a">
+        <p class="font-rajdhani text-xs text-zinc-600 uppercase tracking-widest">© 2026 Barber Freestyle · Todos los derechos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/static/js/gallery.js"></script>
+</body>
+</html>

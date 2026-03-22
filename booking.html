@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendar Cita - Barber Freestyle</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white text-gray-900">
+  <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-2xl font-bold tracking-tight">
+        <span class="text-black">Barber</span><span class="text-amber-600">Freestyle</span>
+      </a>
+      <a href="index.html" class="text-sm text-gray-600 hover:text-black">← Volver</a>
+    </div>
+  </nav>
+
+  <div class="bg-gradient-to-r from-gray-900 to-black text-white py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl font-bold mb-4">Agendar tu Cita</h1>
+      <p class="text-xl text-gray-300">Completa el formulario y te contactaremos para confirmar tu reserva</p>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 py-20">
+    <form id="booking-form" class="bg-white rounded-xl shadow-lg p-8 md:p-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div>
+          <label class="block text-sm font-semibold mb-3 text-gray-700">Nombre Completo</label>
+          <input type="text" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-600 transition-all" placeholder="Tu nombre">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-3 text-gray-700">Teléfono/WhatsApp</label>
+          <input type="tel" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-600 transition-all" placeholder="+57 300 000 0000">
+        </div>
+      </div>
+
+      <div class="mb-8">
+        <label class="block text-sm font-semibold mb-3 text-gray-700">Email (opcional)</label>
+        <input type="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-600 transition-all" placeholder="tu@email.com">
+      </div>
+
+      <div class="mb-8">
+        <label class="block text-sm font-semibold mb-3 text-gray-700">Servicio Deseado</label>
+        <select name="service" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-600 transition-all">
+          <option value="">Selecciona un servicio</option>
+          <option value="Corte Básico">Corte Básico - $30.000</option>
+          <option value="Corte + Freestyle">Corte + Freestyle - $35.000</option>
+          <option value="Corte con Barba">Corte con Barba - $40.000</option>
+          <option value="Corte para Dama">Corte para Dama - $35.000</option>
+          <option value="Corte + Freestyle Creativo">Corte + Freestyle Creativo - $40.000</option>
+          <option value="Asesoría Visajista">Asesoría Visajista - $60.000</option>
+          <option value="Rayitos o Mechas">Rayitos o Mechas - $225.000+</option>
+          <option value="Trenzados">Trenzados - $70.000+</option>
+        </select>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div>
+          <label class="block text-sm font-semibold mb-3 text-gray-700">Fecha Deseada</label>
+          <input type="date" name="date" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-600 transition-all">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-3 text-gray-700">Hora Preferida</label>
+          <select name="time" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-600 transition-all">
+            <option value="">Selecciona una hora</option>
+            <option value="08:00">08:00 AM</option>
+            <option value="08:30">08:30 AM</option>
+            <option value="09:00">09:00 AM</option>
+            <option value="09:30">09:30 AM</option>
+            <option value="10:00">10:00 AM</option>
+            <option value="10:30">10:30 AM</option>
+            <option value="11:00">11:00 AM</option>
+            <option value="11:30">11:30 AM</option>
+            <option value="14:00">02:00 PM</option>
+            <option value="14:30">02:30 PM</option>
+            <option value="15:00">03:00 PM</option>
+            <option value="15:30">03:30 PM</option>
+            <option value="16:00">04:00 PM</option>
+            <option value="16:30">04:30 PM</option>
+            <option value="17:00">05:00 PM</option>
+            <option value="17:30">05:30 PM</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mb-8">
+        <label class="block text-sm font-semibold mb-3 text-gray-700">Observaciones o Detalles Especiales</label>
+        <textarea name="notes" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-600 transition-all" placeholder="Cuéntanos si tienes algún diseño específico en mente o algo que debamos saber..."></textarea>
+      </div>
+
+      <div class="mb-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+        <p class="text-sm text-blue-900">
+          <strong>Nota:</strong> Después de enviar este formulario, nos pondremos en contacto a través de WhatsApp o llamada para confirmar tu cita. Horario: Lunes - Domingo, 08:00 - 18:00.
+        </p>
+      </div>
+
+      <button type="submit" class="w-full px-8 py-4 bg-amber-600 text-white font-bold rounded-lg hover:bg-amber-700 transition-all transform hover:scale-105 text-lg">
+        Enviar Solicitud de Cita
+      </button>
+    </form>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+      <div class="text-center">
+        <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <span class="text-3xl">📍</span>
+        </div>
+        <h3 class="font-semibold mb-2">Ubicación</h3>
+        <p class="text-sm text-gray-600">tv. 25 # 13-66, Villavicencio</p>
+      </div>
+      <div class="text-center">
+        <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <span class="text-3xl">🕐</span>
+        </div>
+        <h3 class="font-semibold mb-2">Horario</h3>
+        <p class="text-sm text-gray-600">Lunes - Domingo<br>08:00 - 18:00</p>
+      </div>
+      <div class="text-center">
+        <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <span class="text-3xl">💬</span>
+        </div>
+        <h3 class="font-semibold mb-2">Contacto Directo</h3>
+        <p class="text-sm text-gray-600"><a href="https://instagram.com/barberfreestyle5" target="_blank" class="text-amber-600 hover:text-amber-700">@barberfreestyle5</a></p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-gray-900 text-gray-400 py-12 px-4 mt-20">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-white font-bold mb-4">Barber Freestyle</h3>
+        <p class="text-sm">Cortes explosivos y diseño freestyle</p>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4">Horario</h4>
+        <p class="text-sm">Lunes - Domingo: 08:00 - 18:00</p>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4">Ubicación</h4>
+        <p class="text-sm">tv. 25 # 13-66, Villavicencio</p>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4">Síguenos</h4>
+        <p class="text-sm"><a href="https://instagram.com/barberfreestyle5" class="hover:text-white">Instagram</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="booking.js"></script>
+</body>
+</html>

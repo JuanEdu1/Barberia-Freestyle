@@ -1,0 +1,405 @@
+/* ══════════════════════════════════════════════════
+   BARBER FREESTYLE - URBAN CSS DESIGN SYSTEM
+   Paleta basada en el logo real: naranja, azul eléctrico, rojo, negro
+   ══════════════════════════════════════════════════ */
+
+:root {
+  /* Colores del logo */
+  --orange:        #F97316;   /* naranja vibrante - letras "AB" */
+  --orange-dark:   #EA580C;   /* naranja oscuro - hover */
+  --orange-light:  #FB923C;   /* naranja claro - acento suave */
+  --blue:          #3B82F6;   /* azul eléctrico - contorno letras */
+  --blue-dark:     #1D4ED8;   /* azul oscuro - hover */
+  --blue-light:    #60A5FA;   /* azul claro acento */
+  --red:           #CC0000;   /* rojo - nube del logo */
+  --red-dark:      #991B1B;
+  --black:         #09090b;   /* negro base */
+  --dark:          #18181b;
+  --dark-2:        #27272a;
+  --dark-3:        #3f3f46;
+  --text:          #e4e4e7;
+  --text-muted:    #a1a1aa;
+
+  --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--black);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── Custom font utilities ── */
+.font-bebas { font-family: 'Bebas Neue', sans-serif !important; }
+.font-rajdhani { font-family: 'Rajdhani', sans-serif !important; }
+.font-inter { font-family: 'Inter', sans-serif !important; }
+
+/* ══ NAVBAR ══ */
+#navbar {
+  background: transparent;
+  transition: var(--transition);
+}
+
+#navbar.navbar-scrolled {
+  background: rgba(9, 9, 11, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(249, 115, 22, 0.25);
+}
+
+.logo-container img {
+  transition: var(--transition);
+}
+.logo-container img:hover {
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.6);
+}
+
+/* ══ HERO ══ */
+.hero-section { min-height: 100vh; position: relative; }
+
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(9, 9, 11, 0.55) 0%,
+    rgba(9, 9, 11, 0.25) 40%,
+    rgba(9, 9, 11, 0.88) 100%
+  );
+}
+
+.hero-title {
+  text-shadow: 0 4px 30px rgba(0,0,0,0.9);
+  animation: heroFadeUp 1s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* Acento naranja (letras del logo) */
+.hero-title-accent {
+  color: var(--orange);
+  text-shadow: 0 0 60px rgba(249, 115, 22, 0.7);
+  animation: heroFadeUp 1s 0.15s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseSlow {
+  0%, 100% { opacity: 0.2; }
+  50%       { opacity: 0.9; }
+}
+
+/* Noise texture */
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 200px;
+}
+
+.stat-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(249, 115, 22, 0.25);
+}
+
+/* ══ BUTTONS ══ */
+
+/* Botón primario - naranja del logo */
+.btn-urban {
+  display: inline-block;
+  background: var(--orange);
+  color: white;
+  border: 2px solid var(--orange);
+  border-radius: 6px;
+  letter-spacing: 2px;
+  transition: var(--transition);
+  text-decoration: none;
+}
+.btn-urban:hover {
+  background: var(--orange-dark);
+  border-color: var(--orange-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(249, 115, 22, 0.45);
+}
+
+.btn-urban-lg {
+  display: inline-block;
+  background: var(--orange);
+  color: white;
+  border: 2px solid var(--orange);
+  border-radius: 6px;
+  letter-spacing: 3px;
+  transition: var(--transition);
+  text-decoration: none;
+}
+.btn-urban-lg:hover {
+  background: var(--orange-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(249, 115, 22, 0.5);
+}
+
+.btn-urban-sm {
+  display: inline-block;
+  background: var(--orange);
+  color: white;
+  border: 1px solid var(--orange);
+  border-radius: 5px;
+  transition: var(--transition);
+  text-decoration: none;
+}
+.btn-urban-sm:hover {
+  background: var(--orange-dark);
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.45);
+}
+
+/* Botón ghost - azul eléctrico del logo */
+.btn-ghost {
+  display: inline-block;
+  background: transparent;
+  color: var(--blue-light);
+  border: 2px solid rgba(59, 130, 246, 0.6);
+  border-radius: 6px;
+  letter-spacing: 3px;
+  transition: var(--transition);
+  text-decoration: none;
+}
+.btn-ghost:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: var(--blue);
+  color: white;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.btn-ghost-sm {
+  display: inline-block;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--dark-3);
+  border-radius: 5px;
+  transition: var(--transition);
+  text-decoration: none;
+}
+.btn-ghost-sm:hover {
+  color: var(--orange-light);
+  border-color: var(--orange);
+}
+
+/* ══ SERVICE CARDS ══ */
+.service-card {
+  transition: var(--transition);
+  background: #18181b;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+/* Glow efecto del rojo del logo para la tarjeta popular */
+.shadow-popular-glow {
+  box-shadow: 0 0 0 2px var(--orange), 0 10px 40px rgba(249, 115, 22, 0.3);
+}
+
+/* Línea decorativa naranja */
+.service-card .divider-line {
+  height: 1px;
+  background: linear-gradient(to right, rgba(249, 115, 22, 0.6), transparent);
+}
+
+.service-tag {
+  background: rgba(0,0,0,0.75);
+  color: var(--orange-light);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(249, 115, 22, 0.4);
+  border-radius: 4px;
+}
+
+.popular-tag {
+  background: var(--orange);
+  color: white;
+  border-radius: 4px;
+}
+
+/* ══ SECTION HEADERS ══ */
+/* Texto de sección secundario: azul del logo */
+.section-label {
+  color: var(--blue-light);
+}
+
+/* Dividers con gradiente naranja */
+.section-top-line,
+.section-bottom-line {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(249, 115, 22, 0.5), transparent);
+}
+
+/* ══ FEATURE CARDS ══ */
+.feature-card {
+  background: rgba(24, 24, 27, 0.8);
+  transition: var(--transition);
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+  background: rgba(24, 24, 27, 1);
+  border-color: rgba(249, 115, 22, 0.4) !important;
+}
+
+/* Tarjeta feature destacada - con tono rojo del logo */
+.feature-card-accent {
+  border-color: rgba(249, 115, 22, 0.5) !important;
+  background: rgba(249, 115, 22, 0.07) !important;
+}
+
+/* ══ TESTIMONIALS ══ */
+.testimonial-card {
+  background: rgba(24, 24, 27, 0.9);
+  transition: var(--transition);
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(249, 115, 22, 0.35) !important;
+}
+
+/* Comilla grande - naranja */
+.quote-mark {
+  color: rgba(249, 115, 22, 0.35);
+}
+
+/* Avatar - degradado naranja-rojo del logo */
+.avatar-circle {
+  background: linear-gradient(135deg, var(--orange), var(--red));
+}
+
+/* ══ CTA BG PATTERN ══ */
+.cta-bg-pattern {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(249, 115, 22, 0.08) 0px,
+    rgba(249, 115, 22, 0.08) 1px,
+    transparent 1px,
+    transparent 14px
+  );
+}
+
+/* CTA hero section desde naranja-rojo */
+.cta-section-bg {
+  background: linear-gradient(135deg, rgba(204, 0, 0, 0.15) 0%, rgba(9,9,11,0) 50%, rgba(249,115,22,0.08) 100%);
+}
+
+/* ══ FILTER BUTTONS (gallery) ══ */
+.filter-btn {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--dark-3);
+  color: var(--text-muted);
+  background: transparent;
+  border-radius: 4px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.filter-btn:hover {
+  border-color: var(--orange);
+  color: var(--orange-light);
+}
+.filter-btn.active {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: white;
+}
+
+/* ══ GALLERY ITEMS ══ */
+.gallery-item {
+  transition: var(--transition);
+  border: 1px solid var(--dark-2);
+}
+.gallery-item:hover {
+  border-color: rgba(249, 115, 22, 0.45);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 25px rgba(249, 115, 22, 0.15);
+}
+
+/* ══ FORM INPUTS ══ */
+input, select, textarea {
+  background: var(--dark) !important;
+  border: 1px solid var(--dark-3) !important;
+  color: white !important;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  transition: var(--transition);
+  outline: none;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--orange) !important;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.18) !important;
+}
+input::placeholder, textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* Opciones del select */
+select option {
+  background: var(--dark);
+  color: white;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ══ PAGE HERO ACCENT (naranja + rojo del logo) ══ */
+.page-hero-gradient {
+  background: linear-gradient(135deg, rgba(204, 0, 0, 0.2) 0%, transparent 50%, rgba(249, 115, 22, 0.1) 100%);
+}
+
+/* Accent bar lateral en el hero de páginas secundarias */
+.page-hero-bar {
+  background: linear-gradient(to bottom, var(--orange), var(--red));
+}
+
+/* ══ BOOKING INFO CARDS ══ */
+.info-card {
+  background: var(--dark);
+  border: 1px solid var(--dark-2);
+  border-radius: 12px;
+  transition: var(--transition);
+}
+.info-card:hover {
+  border-color: rgba(249, 115, 22, 0.4);
+}
+
+/* Alerta naranja booking */
+.booking-alert {
+  border: 1px solid rgba(249, 115, 22, 0.4);
+  background: rgba(249, 115, 22, 0.08);
+  border-radius: 10px;
+  color: rgba(251, 191, 36, 0.85);
+}
+
+/* ══ NAVBAR TEXT ACCENTS ══ */
+.nav-brand-orange { color: var(--orange); }
+.nav-brand-blue  { color: var(--blue-light); }
+
+/* ══ FOOTER ══ */
+.footer-divider {
+  border-color: var(--dark-2);
+}
+
+/* ══ LOGO RING: azul del logo ══ */
+.logo-ring-blue {
+  ring-color: var(--blue);
+  box-shadow: 0 0 0 2px var(--blue);
+}
+
+/* ══ RESPONSIVE ══ */
+@media (max-width: 768px) {
+  .hero-section h1 { font-size: 4rem !important; }
+}
