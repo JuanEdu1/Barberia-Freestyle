@@ -7,142 +7,316 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="/static/css/styles.css">
+  <style>
+    /* ── Flatpickr custom dark theme ── */
+    .flatpickr-calendar {
+      background: #18181b !important;
+      border: 1px solid #3f3f46 !important;
+      border-radius: 16px !important;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5) !important;
+      font-family: 'Inter', sans-serif !important;
+      width: 100% !important;
+      max-width: 380px;
+    }
+    .flatpickr-months { padding: 12px 8px 4px; }
+    .flatpickr-month { background: transparent !important; color: #fff !important; }
+    .flatpickr-current-month { color: #fff !important; font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.1em; }
+    .flatpickr-current-month .numInputWrapper span { border-color: #52525b; }
+    .flatpickr-current-month input.cur-year { color: #fff !important; }
+    .flatpickr-monthDropdown-months { background: #18181b !important; color: #fff !important; }
+    .flatpickr-weekdays { background: transparent !important; }
+    span.flatpickr-weekday { color: #71717a !important; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .flatpickr-days { border-top: 1px solid #3f3f46 !important; }
+    .dayContainer { padding: 8px; }
+    .flatpickr-day {
+      color: #d4d4d8 !important;
+      border-radius: 8px !important;
+      font-family: 'Inter', sans-serif;
+      border: none !important;
+      transition: all 0.15s;
+    }
+    .flatpickr-day:hover { background: #27272a !important; color: #fff !important; }
+    .flatpickr-day.selected, .flatpickr-day.selected:hover {
+      background: #F97316 !important;
+      color: #fff !important;
+      font-weight: 700;
+    }
+    .flatpickr-day.today:not(.selected) { 
+      border: 1px solid #F97316 !important; 
+      color: #F97316 !important; 
+    }
+    .flatpickr-day.flatpickr-disabled {
+      color: #3f3f46 !important;
+      background: transparent !important;
+      text-decoration: line-through;
+    }
+    .flatpickr-prev-month, .flatpickr-next-month {
+      color: #a1a1aa !important;
+      fill: #a1a1aa !important;
+    }
+    .flatpickr-prev-month:hover, .flatpickr-next-month:hover {
+      color: #F97316 !important;
+      fill: #F97316 !important;
+      background: transparent !important;
+    }
+
+    /* ── Slot buttons ── */
+    .slot-btn {
+      border-radius: 8px;
+      padding: 8px 4px;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      text-align: center;
+      border: 1px solid #3f3f46;
+      background: #27272a;
+      color: #d4d4d8;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .slot-btn:hover:not(:disabled) { border-color: #F97316; color: #F97316; }
+    .slot-btn.selected { background: #F97316; border-color: #F97316; color: #fff; }
+    .slot-btn:disabled { background: #18181b; color: #52525b; border-color: #27272a; cursor: not-allowed; }
+
+    /* ── Form inputs ── */
+    .bk-input {
+      width: 100%;
+      padding: 12px 16px;
+      background: #27272a;
+      border: 1px solid #3f3f46;
+      border-radius: 10px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .bk-input:focus { border-color: #F97316; }
+    .bk-input.error { border-color: #ef4444; }
+    .bk-input::placeholder { color: #71717a; }
+    select.bk-input option { background: #27272a; }
+
+    /* ── Section cards ── */
+    .bk-section {
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 20px;
+      transition: border-color 0.3s;
+    }
+    .bk-section.active { border-color: #F97316; }
+    .bk-section-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #F97316;
+      margin-bottom: 4px;
+    }
+    .bk-section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.08em;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    /* ── Service info badge ── */
+    .service-badge {
+      display: flex;
+      gap: 16px;
+      padding: 10px 14px;
+      background: #09090b;
+      border: 1px solid #3f3f46;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    .service-badge span { font-family: 'Inter', sans-serif; font-size: 0.82rem; color: #a1a1aa; }
+    .service-badge strong { color: #F97316; }
+
+    /* ── Summary card ── */
+    .summary-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #27272a; }
+    .summary-row:last-child { border-bottom: none; }
+    .summary-row .label { font-family: 'Rajdhani', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #71717a; }
+    .summary-row .value { font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #fff; font-weight: 500; }
+
+    /* ── Error messages ── */
+    .field-error { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: #ef4444; margin-top: 5px; display: none; }
+    .field-error.show { display: block; }
+
+    /* ── Submit button disabled state ── */
+    #submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    /* ── Slots placeholder ── */
+    .slots-placeholder { text-align: center; padding: 20px; color: #52525b; font-family: 'Inter', sans-serif; font-size: 0.85rem; }
+  </style>
 </head>
 <body class="bg-black text-white">
 
   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 navbar-scrolled transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
       <a href="/" class="flex items-center gap-3">
-        <img src="/static/images/logo.png" alt="Logo" class="w-10 h-10 object-cover rounded-full ring-2 ring-amber-500">
+        <img src="/static/images/logo.PNG" alt="Logo" class="w-10 h-10 object-contain rounded-full" style="background:#000;box-shadow:0 0 0 2px #3B82F6">
         <div>
-          <span class="text-white font-bebas text-xl tracking-widest">BARBER</span><span class="text-amber-400 font-bebas text-xl tracking-widest">FREESTYLE</span>
+          <span class="font-bebas text-xl tracking-widest text-white">BARBER</span><span class="font-bebas text-xl tracking-widest" style="color:#F97316">FREESTYLE</span>
         </div>
       </a>
-      <a href="/" class="font-rajdhani text-sm tracking-widest uppercase text-gray-400 hover:text-amber-400 transition-colors">← Volver</a>
+      <a href="/" class="font-rajdhani text-sm tracking-widest uppercase text-zinc-400 hover:text-white transition-colors">← Volver</a>
     </div>
   </nav>
 
   <!-- PAGE HERO -->
-  <div class="relative pt-20 pb-16 px-4 bg-zinc-950 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-transparent to-black"></div>
-    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent"></div>
+  <div class="relative pt-20 pb-16 px-4 overflow-hidden" style="background:#0c0c0e">
+    <div class="absolute inset-0" style="background:radial-gradient(ellipse at top left,rgba(249,115,22,0.12),transparent 60%)"></div>
+    <div class="section-top-line absolute top-0 left-0 right-0"></div>
     <div class="relative z-10 max-w-4xl mx-auto pt-12">
-      <div class="font-rajdhani text-amber-500 text-sm tracking-widest uppercase mb-3">// Reserva tu turno</div>
-      <h1 class="font-bebas text-7xl sm:text-8xl tracking-wide mb-4">AGENDAR<br><span class="text-amber-400">TU CITA</span></h1>
-      <p class="font-inter text-gray-400 text-lg">Completa el formulario y te contactaremos para confirmar tu reserva</p>
+      <div class="font-rajdhani text-sm tracking-widest uppercase mb-3 section-label">// Reserva tu turno</div>
+      <h1 class="font-bebas text-7xl sm:text-8xl tracking-wide mb-4">AGENDAR<br><span style="color:#F97316">TU CITA</span></h1>
+      <p class="font-inter text-zinc-400 text-lg">Completa el formulario y te contactaremos por WhatsApp para confirmar</p>
     </div>
-    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent"></div>
+    <div class="section-bottom-line absolute bottom-0 left-0 right-0"></div>
   </div>
 
-  <!-- FORM -->
-  <div class="max-w-4xl mx-auto px-4 py-16">
-    <form id="booking-form" class="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 md:p-12">
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+  <!-- MAIN FORM -->
+  <div class="max-w-2xl mx-auto px-4 py-16">
+
+    <!-- Step 0: Personal Data -->
+    <div class="bk-section mb-5">
+      <div class="bk-section-label">// Paso 1</div>
+      <div class="bk-section-title">TUS DATOS</div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
         <div>
-          <label class="block font-rajdhani text-xs tracking-widest uppercase text-gray-400 mb-2">Nombre Completo</label>
-          <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg" placeholder="Tu nombre">
+          <label class="block font-rajdhani text-xs tracking-widest uppercase text-zinc-400 mb-2">Nombre Completo *</label>
+          <input id="inp-name" type="text" class="bk-input" placeholder="Tu nombre completo">
+          <div class="field-error" id="err-name">Este campo es obligatorio</div>
         </div>
         <div>
-          <label class="block font-rajdhani text-xs tracking-widest uppercase text-gray-400 mb-2">Teléfono / WhatsApp</label>
-          <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-lg" placeholder="+57 300 000 0000">
+          <label class="block font-rajdhani text-xs tracking-widest uppercase text-zinc-400 mb-2">Teléfono / WhatsApp *</label>
+          <input id="inp-phone" type="tel" class="bk-input" placeholder="+57 300 000 0000">
+          <div class="field-error" id="err-phone">Este campo es obligatorio</div>
         </div>
       </div>
-
-      <div class="mb-6">
-        <label class="block font-rajdhani text-xs tracking-widest uppercase text-gray-400 mb-2">Email (opcional)</label>
-        <input type="email" name="email" class="w-full px-4 py-3 rounded-lg" placeholder="tu@email.com">
+      <div>
+        <label class="block font-rajdhani text-xs tracking-widest uppercase text-zinc-400 mb-2">Email (opcional)</label>
+        <input id="inp-email" type="email" class="bk-input" placeholder="tu@email.com">
       </div>
+    </div>
 
-      <div class="mb-6">
-        <label class="block font-rajdhani text-xs tracking-widest uppercase text-gray-400 mb-2">Servicio Deseado</label>
-        <select name="service" required class="w-full px-4 py-3 rounded-lg">
-          <option value="">Selecciona un servicio</option>
-          <option value="Corte Básico">Corte Básico – $30.000</option>
-          <option value="Corte + Freestyle">Corte + Freestyle – $35.000</option>
-          <option value="Corte con Barba">Corte con Barba – $40.000</option>
-          <option value="Corte para Dama">Corte para Dama – $35.000</option>
-          <option value="Corte + Freestyle Creativo">Corte + Freestyle Creativo – $40.000</option>
-          <option value="Asesoría Visajista">Asesoría Visajista – $60.000</option>
-          <option value="Rayitos o Mechas">Rayitos o Mechas – $225.000+</option>
-          <option value="Trenzados">Trenzados – $70.000+</option>
-        </select>
+    <!-- Step 1: Service Selection -->
+    <div class="bk-section mb-5" id="section-service">
+      <div class="bk-section-label">// Paso 2</div>
+      <div class="bk-section-title">ELIGE TU SERVICIO</div>
+      <select id="inp-service" class="bk-input">
+        <option value="">Selecciona un servicio...</option>
+        <option value="corte-basico">Corte Básico</option>
+        <option value="corte-freestyle">Corte + Freestyle</option>
+        <option value="corte-barba">Corte con Barba</option>
+        <option value="corte-dama">Corte para Dama</option>
+        <option value="freestyle-creativo">Corte + Freestyle Creativo</option>
+        <option value="asesoria-visajista">Asesoría Visajista</option>
+        <option value="rayitos-mechas">Rayitos o Mechas</option>
+        <option value="trenzados">Trenzados</option>
+      </select>
+      <div class="field-error" id="err-service">Debes seleccionar un servicio</div>
+
+      <!-- Service info badge -->
+      <div class="service-badge" id="service-badge" style="display:none">
+        <div><span>Duración</span><br><strong id="badge-duration">—</strong></div>
+        <div style="width:1px;background:#3f3f46"></div>
+        <div><span>Precio</span><br><strong id="badge-price">—</strong></div>
+        <div style="width:1px;background:#3f3f46"></div>
+        <div><span>Notas</span><br><span id="badge-note" style="color:#a1a1aa;font-size:0.78rem"></span></div>
       </div>
+    </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div>
-          <label class="block font-rajdhani text-xs tracking-widest uppercase text-gray-400 mb-2">Fecha Deseada</label>
-          <input type="date" name="date" required class="w-full px-4 py-3 rounded-lg">
+    <!-- Step A: Date -->
+    <div class="bk-section mb-5" id="section-date">
+      <div class="bk-section-label">// Sección A</div>
+      <div class="bk-section-title">ELIGE TU FECHA</div>
+      <div id="cal-container" style="display:flex;justify-content:center">
+        <input id="cal-input" type="text" placeholder="Selecciona una fecha" class="bk-input" style="max-width:380px" readonly>
+      </div>
+      <div class="field-error" id="err-date">Debes seleccionar una fecha</div>
+    </div>
+
+    <!-- Step B: Time Slots -->
+    <div class="bk-section mb-5" id="section-time">
+      <div class="bk-section-label">// Sección B</div>
+      <div class="bk-section-title">ELIGE TU HORA</div>
+      <div id="slots-container">
+        <div class="slots-placeholder" id="slots-placeholder">
+          ← Primero selecciona una fecha y un servicio
         </div>
-        <div>
-          <label class="block font-rajdhani text-xs tracking-widest uppercase text-gray-400 mb-2">Hora Preferida</label>
-          <select name="time" required class="w-full px-4 py-3 rounded-lg">
-            <option value="">Selecciona una hora</option>
-            <option value="08:00">08:00 AM</option>
-            <option value="08:30">08:30 AM</option>
-            <option value="09:00">09:00 AM</option>
-            <option value="09:30">09:30 AM</option>
-            <option value="10:00">10:00 AM</option>
-            <option value="10:30">10:30 AM</option>
-            <option value="11:00">11:00 AM</option>
-            <option value="11:30">11:30 AM</option>
-            <option value="14:00">02:00 PM</option>
-            <option value="14:30">02:30 PM</option>
-            <option value="15:00">03:00 PM</option>
-            <option value="15:30">03:30 PM</option>
-            <option value="16:00">04:00 PM</option>
-            <option value="16:30">04:30 PM</option>
-            <option value="17:00">05:00 PM</option>
-            <option value="17:30">05:30 PM</option>
-          </select>
-        </div>
+        <div id="slots-grid" class="grid gap-2" style="display:none;grid-template-columns:repeat(auto-fill,minmax(80px,1fr))"></div>
       </div>
+      <div class="field-error" id="err-time">Debes seleccionar un horario</div>
+    </div>
 
-      <div class="mb-6">
-        <label class="block font-rajdhani text-xs tracking-widest uppercase text-gray-400 mb-2">Observaciones</label>
-        <textarea name="notes" rows="4" class="w-full px-4 py-3 rounded-lg" placeholder="Cuéntanos si tienes algún diseño específico en mente..."></textarea>
-      </div>
+    <!-- Step C: Summary -->
+    <div class="bk-section mb-5" id="section-summary" style="display:none">
+      <div class="bk-section-label">// Sección C</div>
+      <div class="bk-section-title">RESUMEN DE TU CITA</div>
+      <div class="summary-row"><span class="label">Servicio</span><span class="value" id="sum-service">—</span></div>
+      <div class="summary-row"><span class="label">Duración</span><span class="value" id="sum-duration">—</span></div>
+      <div class="summary-row"><span class="label">Fecha</span><span class="value" id="sum-date">—</span></div>
+      <div class="summary-row"><span class="label">Hora</span><span class="value" id="sum-time">—</span></div>
+      <div class="summary-row"><span class="label">Precio estimado</span><span class="value" id="sum-price" style="color:#F97316;font-weight:700">—</span></div>
+    </div>
 
-      <div class="mb-8 p-4 border border-amber-700/40 rounded-xl bg-amber-950/20">
-        <p class="font-inter text-sm text-amber-300/80">
-          <span class="font-semibold">📋 Nota:</span> Nos pondremos en contacto vía WhatsApp para confirmar tu cita. Horario: Lunes – Domingo, 08:00 – 18:00.
-        </p>
-      </div>
+    <!-- Notes -->
+    <div class="bk-section mb-5">
+      <div class="bk-section-label">// Opcional</div>
+      <div class="bk-section-title">OBSERVACIONES</div>
+      <textarea id="inp-notes" rows="3" class="bk-input" placeholder="¿Tienes algún diseño en mente? Cuéntanos..."></textarea>
+    </div>
 
-      <button type="submit" class="w-full btn-urban-lg font-bebas tracking-widest text-xl py-4">
-        ENVIAR SOLICITUD DE CITA
-      </button>
-    </form>
+    <!-- Note banner -->
+    <div class="mb-6 p-4 rounded-xl" style="border:1px solid rgba(249,115,22,0.35);background:rgba(249,115,22,0.07)">
+      <p class="font-inter text-sm" style="color:rgba(249,115,22,0.85)">
+        <span class="font-semibold">📋 Nota:</span> Nos pondremos en contacto vía WhatsApp para confirmar tu cita. Horario: Lunes – Sábado, 09:00 – 18:00.
+      </p>
+    </div>
 
-    <!-- Info cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-      <div class="p-6 bg-zinc-900 border border-zinc-800 rounded-xl text-center hover:border-amber-600/40 transition-all">
-        <div class="text-4xl mb-3">📍</div>
-        <h3 class="font-bebas text-lg tracking-wide mb-2">Ubicación</h3>
-        <p class="font-inter text-sm text-gray-500">tv. 25 # 13-66<br>Villavicencio</p>
+    <!-- Submit -->
+    <button id="submit-btn" disabled class="w-full btn-urban-lg font-bebas tracking-widest text-xl py-4">
+      CONFIRMAR SOLICITUD DE CITA
+    </button>
+  </div>
+
+  <!-- Info cards -->
+  <div class="max-w-2xl mx-auto px-4 pb-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="p-5 rounded-xl text-center transition-all" style="background:#18181b;border:1px solid #27272a">
+        <div class="text-3xl mb-2">📍</div>
+        <h3 class="font-bebas text-base tracking-wide mb-1">Ubicación</h3>
+        <p class="font-inter text-sm text-zinc-500">tv. 25 # 13-66<br>Villavicencio</p>
       </div>
-      <div class="p-6 bg-zinc-900 border border-zinc-800 rounded-xl text-center hover:border-amber-600/40 transition-all">
-        <div class="text-4xl mb-3">🕐</div>
-        <h3 class="font-bebas text-lg tracking-wide mb-2">Horario</h3>
-        <p class="font-inter text-sm text-gray-500">Lunes – Domingo<br>08:00 – 18:00</p>
+      <div class="p-5 rounded-xl text-center transition-all" style="background:#18181b;border:1px solid #27272a">
+        <div class="text-3xl mb-2">🕐</div>
+        <h3 class="font-bebas text-base tracking-wide mb-1">Horario</h3>
+        <p class="font-inter text-sm text-zinc-500">Lunes – Sábado<br>09:00 – 18:00</p>
       </div>
-      <div class="p-6 bg-zinc-900 border border-zinc-800 rounded-xl text-center hover:border-amber-600/40 transition-all">
-        <div class="text-4xl mb-3">💬</div>
-        <h3 class="font-bebas text-lg tracking-wide mb-2">Contacto</h3>
-        <a href="https://instagram.com/barberfreestyle5" target="_blank" class="font-inter text-sm text-amber-400 hover:text-amber-300 transition-colors">@barberfreestyle5</a>
+      <div class="p-5 rounded-xl text-center transition-all" style="background:#18181b;border:1px solid #27272a">
+        <div class="text-3xl mb-2">💬</div>
+        <h3 class="font-bebas text-base tracking-wide mb-1">Contacto</h3>
+        <a href="https://instagram.com/barberfreestyle5" target="_blank" class="font-inter text-sm transition-colors" style="color:#F97316">@barberfreestyle5</a>
       </div>
     </div>
   </div>
 
-  <footer class="pt-12 pb-8 px-4 mt-8" style="background:#09090b;border-top:1px solid #27272a">
+  <footer class="pt-12 pb-8 px-4" style="background:#09090b;border-top:1px solid #27272a">
     <div class="max-w-6xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
         <div class="flex items-center gap-3">
           <img src="/static/images/logo.PNG" alt="Logo" class="w-9 h-9 rounded-full object-contain" style="background:#000;box-shadow:0 0 0 2px #3B82F6">
           <div class="font-bebas text-lg tracking-widest text-white">BARBER<span style="color:#F97316">FREESTYLE</span></div>
         </div>
-        <div><p class="font-inter text-sm text-zinc-500">Lunes – Domingo: 08:00 – 18:00</p></div>
+        <div><p class="font-inter text-sm text-zinc-500">Lunes – Sábado: 09:00 – 18:00</p></div>
         <div>
           <p class="font-inter text-sm text-zinc-500">tv. 25 # 13-66, Villavicencio</p>
           <a href="https://maps.google.com/?q=tv.+25+%2313-66+Villavicencio+Colombia" target="_blank"
@@ -150,37 +324,14 @@
         </div>
         <div><a href="https://instagram.com/barberfreestyle5" class="font-inter text-sm text-zinc-500 hover:text-white transition-colors">@barberfreestyle5</a></div>
       </div>
-      <!-- Mapa -->
-      <div class="mb-8">
-        <div class="flex items-center gap-3 mb-4">
-          <span class="font-rajdhani text-xs uppercase tracking-widest section-label">// Encuéntranos aquí</span>
-          <div class="flex-1 h-px" style="background:linear-gradient(to right,rgba(249,115,22,0.4),transparent)"></div>
-        </div>
-        <div class="relative w-full overflow-hidden rounded-2xl" style="border:1px solid rgba(249,115,22,0.25);height:260px">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.1234!2d-73.6428!3d4.1420!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3e2e3e2e3e2e3e%3A0x1234567890abcdef!2sCra.+25+%2313-66%2C+Villavicencio%2C+Meta!5e0!3m2!1ses!2sco!4v1234567890"
-            width="100%" height="260"
-            style="border:0;filter:grayscale(40%) contrast(1.1);display:block"
-            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            title="Ubicación Barber Freestyle"></iframe>
-          <div class="absolute bottom-4 left-4 flex items-center gap-3 px-4 py-3 rounded-xl backdrop-blur-md"
-               style="background:rgba(9,9,11,0.85);border:1px solid rgba(249,115,22,0.3)">
-            <span style="color:#F97316" class="text-xl">📍</span>
-            <div>
-              <p class="font-bebas text-base tracking-wide text-white leading-none">Barber Freestyle</p>
-              <p class="font-inter text-xs text-zinc-400">tv. 25 # 13-66, Villavicencio</p>
-            </div>
-            <a href="https://maps.google.com/?q=tv.+25+%2313-66+Villavicencio+Colombia" target="_blank"
-               class="ml-2 btn-urban-sm font-rajdhani uppercase tracking-widest text-xs px-3 py-1.5">Abrir</a>
-          </div>
-        </div>
-      </div>
       <div class="pt-6 text-center" style="border-top:1px solid #27272a">
         <p class="font-rajdhani text-xs text-zinc-600 uppercase tracking-widest">© 2026 Barber Freestyle · Todos los derechos reservados</p>
       </div>
     </div>
   </footer>
 
-  <script type="module" src="/static/js/booking.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+  <script src="/static/js/booking.js"></script>
 </body>
 </html>
