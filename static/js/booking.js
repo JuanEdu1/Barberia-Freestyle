@@ -3,14 +3,14 @@
 // ─────────────────────────────────────────────
 
 const SERVICES = {
-  'corte-basico':       { name: 'Corte Básico',               price: '$30.000',   duration: 25,  note: 'Incluye cejas y styling' },
-  'corte-freestyle':    { name: 'Corte + Freestyle',           price: '$35.000',   duration: 35,  note: 'Diseño freestyle personalizado' },
-  'corte-barba':        { name: 'Corte con Barba',             price: '$40.000',   duration: 35,  note: 'Perfilado de barba + cejas' },
-  'corte-dama':         { name: 'Corte para Dama',             price: '$35.000',   duration: 40,  note: 'Corte + cejas con cuchilla' },
-  'freestyle-creativo': { name: 'Corte + Freestyle Creativo',  price: '$40.000',   duration: 45,  note: 'Diseño avanzado y creativo' },
-  'asesoria-visajista': { name: 'Asesoría Visajista',          price: '$60.000',   duration: 60,  note: 'Corte + asesoría de estilo' },
-  'rayitos-mechas':     { name: 'Rayitos o Mechas',            price: '$225.000+', duration: 200, note: 'Precio puede variar según trabajo' },
-  'trenzados':          { name: 'Trenzados',                   price: '$70.000+',  duration: 150, note: 'Precio varía según diseño' },
+  'corte-basico':       { name: 'Corte Básico',               price: '$30.000',    priceNum: 30000,   duration: 25,  note: 'Incluye cejas y styling' },
+  'corte-freestyle':    { name: 'Corte + Freestyle',          price: '$35.000',    priceNum: 35000,   duration: 35,  note: 'Diseño freestyle personalizado' },
+  'corte-barba':        { name: 'Corte con Barba',            price: '$40.000',    priceNum: 40000,   duration: 35,  note: 'Perfilado de barba + cejas' },
+  'corte-dama':         { name: 'Corte para Dama',            price: '$35.000',    priceNum: 35000,   duration: 40,  note: 'Corte + cejas con cuchilla' },
+  'freestyle-creativo': { name: 'Corte + Freestyle Creativo', price: '$40.000',    priceNum: 40000,   duration: 45,  note: 'Diseño avanzado y creativo' },
+  'asesoria-visajista': { name: 'Asesoría Visajista',         price: '$60.000',    priceNum: 60000,   duration: 60,  note: 'Corte + asesoría de estilo' },
+  'rayitos-mechas':     { name: 'Rayitos o Mechas',           price: '$225.000+',  priceNum: 225000,  duration: 200, note: 'Precio puede variar según trabajo' },
+  'trenzados':          { name: 'Trenzados',                  price: '$70.000+',   priceNum: 70000,   duration: 150, note: 'Precio varía según diseño' },
 };
 
 const OPEN_HOUR  = 9;   // 9:00 AM
@@ -264,30 +264,34 @@ submitBtn.addEventListener('click', async () => {
     phone:   inpPhone.value.trim(),
     email:   inpEmail.value.trim(),
     service: svc.name,
+    service_slug: currentSlug,
+    // precio numérico sin puntos para backend
+    price_num: typeof svc.priceNum === 'number' ? svc.priceNum : undefined,
     date:    selectedDate,
     time:    selectedTime,
     notes:   inpNotes.value.trim(),
     timestamp: new Date().toISOString()
   };
 
-  // Mark slot as occupied
+  // Marcar slot como ocupado en el front
   addOccupiedSlot(selectedDate, currentSlug, selectedTime);
 
   try {
-    const encodedUrl = encodeURIComponent('https://api.openrouter.ai/api/v1/messages');
-    await fetch('https://dev-edge.flowith.net/api-proxy/' + encodedUrl, {
+    const resp = await fetch('/api/bookings', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'X-API-Key': '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' },
-      body: JSON.stringify({
-        model: 'deepseek/deepseek-chat-v3-0324:free',
-        messages: [{
-          role: 'user',
-          content: `Nueva solicitud de cita en Barber Freestyle:\n\nCliente: ${data.name}\nTeléfono: ${data.phone}\nEmail: ${data.email || 'N/A'}\nServicio: ${data.service}\nFecha: ${data.date}\nHora: ${data.time}\nNotas: ${data.notes || 'Ninguna'}\n\nContacta al cliente para confirmar.`
-        }]
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
     });
+
+    if (!resp.ok) {
+      console.error('Error al crear reserva', await resp.text());
+      showErrorMessage('No se pudo registrar la reserva. Intenta nuevamente.');
+      return;
+    }
   } catch (e) {
-    console.log('Error sending booking (local only):', e);
+    console.error('Error de red al crear reserva', e);
+    showErrorMessage('No se pudo contactar al servidor. Intenta nuevamente.');
+    return;
   }
 
   localStorage.setItem('lastBooking', JSON.stringify(data));
@@ -317,7 +321,15 @@ function resetForm() {
 function showSuccessMessage() {
   const msg = document.createElement('div');
   msg.style.cssText = 'position:fixed;top:20px;right:20px;background:#16a34a;color:#fff;padding:16px 24px;border-radius:12px;font-family:Inter,sans-serif;font-size:0.95rem;z-index:9999;box-shadow:0 4px 24px rgba(0,0,0,0.4);max-width:340px;';
-  msg.innerHTML = '<strong>✓ ¡Solicitud recibida!</strong><br>Te contactaremos pronto por WhatsApp para confirmar tu cita.';
+  msg.innerHTML = '<strong>✓ ¡Solicitud recibida!</strong><br>Te enviamos un resumen por correo (si lo ingresaste) y te contactaremos por WhatsApp para confirmar.';
+  document.body.appendChild(msg);
+  setTimeout(() => msg.remove(), 6000);
+}
+
+function showErrorMessage(text) {
+  const msg = document.createElement('div');
+  msg.style.cssText = 'position:fixed;top:20px;right:20px;background:#dc2626;color:#fff;padding:16px 24px;border-radius:12px;font-family:Inter,sans-serif;font-size:0.9rem;z-index:9999;box-shadow:0 4px 24px rgba(0,0,0,0.4);max-width:340px;';
+  msg.textContent = text;
   document.body.appendChild(msg);
   setTimeout(() => msg.remove(), 6000);
 }
