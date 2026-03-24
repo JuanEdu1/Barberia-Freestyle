@@ -37,6 +37,27 @@ SERVICE_MAP = {
 }
 
 
+@app.template_filter('time_12h')
+def time_12h(value: str) -> str:
+    """Convierte una hora HH:MM o HH:MM:SS a formato 12 horas (4:00 p.m.)."""
+
+    if not value:
+        return ''
+
+    for fmt in ('%H:%M', '%H:%M:%S'):
+        try:
+            dt = datetime.strptime(value, fmt)
+            # 04:00 PM -> 4:00 p.m.
+            out = dt.strftime('%I:%M %p').lstrip('0')
+            return (
+                out.replace('AM', 'a.m.').replace('PM', 'p.m.')
+            )
+        except ValueError:
+            continue
+
+    return value
+
+
 def get_db_connection():
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
@@ -264,6 +285,53 @@ def admin_dashboard():
     total_cortes = len(completed)
     promedio_por_corte = int(total_ingresos / total_cortes) if total_cortes else 0
 
+    # Eventos para calendario (todas las reservas)
+    calendar_events = []
+    for b in bookings:
+        calendar_events.append(
+            {
+                'id': b['id'],
+                'title': f"{b['name']} - {b['service_name']}",
+                'date': b['date'],
+                'time': b['time'],
+                'name': b['name'],
+                'phone': b['phone'],
+                'email': b['email'],
+                'service_name': b['service_name'],
+                'service_slug': b['service_slug'],
+                'status': b['status'],
+                'price': b['price'],
+                'notes': b['notes'],
+                'created_at': b['created_at'],
+                'completed_at': b['completed_at'],
+            }
+        )
+
+    # Ingresos por mes (solo reservas completadas)
+    monthly_map = {}
+    for b in completed:
+        date_str = b['date']
+        parsed_date = None
+        for fmt in ('%Y-%m-%d', '%d/%m/%Y'):
+            try:
+                parsed_date = datetime.strptime(date_str, fmt)
+                break
+            except ValueError:
+                continue
+
+        if not parsed_date:
+            continue
+
+        key = parsed_date.strftime('%Y-%m')
+        label = parsed_date.strftime('%b %Y')
+        if key not in monthly_map:
+            monthly_map[key] = {'label': label, 'total': 0}
+        monthly_map[key]['total'] += b['price']
+
+    monthly_keys = sorted(monthly_map.keys())
+    monthly_labels = [monthly_map[k]['label'] for k in monthly_keys]
+    monthly_totals = [monthly_map[k]['total'] for k in monthly_keys]
+
     conn.close()
 
     return render_template(
@@ -272,6 +340,9 @@ def admin_dashboard():
         total_ingresos=total_ingresos,
         total_cortes=total_cortes,
         promedio_por_corte=promedio_por_corte,
+        calendar_events=calendar_events,
+        monthly_labels=monthly_labels,
+        monthly_totals=monthly_totals,
     )
 
 
