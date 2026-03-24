@@ -26,6 +26,7 @@
       <!-- Desktop Nav -->
       <div class="hidden md:flex gap-6 items-center">
         <a href="#servicios" class="font-rajdhani text-sm tracking-widest uppercase text-zinc-400 hover:text-white transition-colors">Servicios</a>
+        <a href="#nosotros" class="font-rajdhani text-sm tracking-widest uppercase text-zinc-400 hover:text-white transition-colors">Nosotros</a>
         <a href="/gallery.html" class="font-rajdhani text-sm tracking-widest uppercase text-zinc-400 hover:text-white transition-colors">Galería</a>
         <a href="#testimonios" class="font-rajdhani text-sm tracking-widest uppercase text-zinc-400 hover:text-white transition-colors">Reviews</a>
         <a href="/booking.html" class="btn-urban px-6 py-2 font-rajdhani text-sm tracking-widest uppercase font-semibold">Agendar</a>
@@ -41,6 +42,7 @@
     <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-black/97 backdrop-blur-xl px-6 pb-6 pt-4" style="border-top:1px solid rgba(249,115,22,0.2)">
       <a href="#servicios" class="block py-3 font-rajdhani uppercase tracking-widest text-zinc-400 hover:text-white border-b border-zinc-800">Servicios</a>
+      <a href="#nosotros" class="block py-3 font-rajdhani uppercase tracking-widest text-zinc-400 hover:text-white border-b border-zinc-800">Nosotros</a>
       <a href="/gallery.html" class="block py-3 font-rajdhani uppercase tracking-widest text-zinc-400 hover:text-white border-b border-zinc-800">Galería</a>
       <a href="#testimonios" class="block py-3 font-rajdhani uppercase tracking-widest text-zinc-400 hover:text-white border-b border-zinc-800">Reviews</a>
       <a href="/booking.html" class="block mt-4 btn-urban text-center py-3 font-rajdhani uppercase tracking-widest font-semibold">Agendar Cita</a>
@@ -69,8 +71,8 @@
         <span class="font-rajdhani text-xs tracking-widest uppercase" style="color:#60A5FA">Villavicencio · Colombia</span>
       </div>
 
-      <h1 class="font-bebas text-[5rem] sm:text-[8rem] leading-none tracking-wider mb-4 text-white hero-title">
-        CORTES<br><span class="hero-title-accent">EXPLOSIVOS</span>
+      <h1 class="font-bebas text-[3.2rem] sm:text-[5.5rem] lg:text-[7.5rem] leading-none tracking-wider mb-4 text-white hero-title">
+        CORTES FREESTYLE<br><span class="hero-title-accent">BARRAS Y FLOW</span>
       </h1>
 
       <p class="font-rajdhani text-lg sm:text-2xl text-zinc-300 mb-10 tracking-wide max-w-2xl mx-auto">
@@ -84,7 +86,7 @@
       </div>
 
       <!-- Stats -->
-      <div class="mt-16 grid grid-cols-3 gap-4 max-w-xl mx-auto">
+      <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xl mx-auto">
         <div class="stat-card p-4 text-center">
           <div class="font-bebas text-4xl" style="color:#F97316">500+</div>
           <div class="font-rajdhani text-xs text-zinc-500 uppercase tracking-widest">Clientes</div>
@@ -278,14 +280,14 @@
     <div class="section-bottom-line absolute bottom-0 left-0 right-0"></div>
   </section>
 
-  <!-- ═══ WHY US ═══ -->
-  <section class="py-24 px-4 bg-black">
+  <!-- ═══ WHY US / NOSOTROS ═══ -->
+  <section id="nosotros" class="py-24 px-4 bg-black">
     <div class="max-w-6xl mx-auto">
       <div class="mb-16 text-center">
         <div class="font-rajdhani text-sm tracking-widest uppercase mb-2 section-label">// Por qué elegirnos</div>
         <h2 class="font-bebas text-6xl text-white tracking-wide">NUESTRA DIFERENCIA</h2>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         <div class="feature-card p-8 rounded-2xl text-center group" style="border:1px solid #27272a">
           <div class="text-5xl mb-6 group-hover:scale-110 transition-transform">✂️</div>
           <h3 class="font-bebas text-2xl tracking-wide mb-3">Diseño Freestyle</h3>
@@ -300,6 +302,35 @@
           <div class="text-5xl mb-6 group-hover:scale-110 transition-transform">⭐</div>
           <h3 class="font-bebas text-2xl tracking-wide mb-3">Atención Personal</h3>
           <p class="text-zinc-400 font-inter text-sm leading-relaxed">Asesoría visajista y cuidado detallado en cada servicio</p>
+        </div>
+      </div>
+
+      <!-- Perfil barbero principal -->
+      <div class="grid grid-cols-1 md:grid-cols-[auto,1fr] gap-8 items-center">
+        <div class="relative mx-auto md:mx-0">
+          <div class="w-40 h-40 rounded-full overflow-hidden border-2 border-amber-500 shadow-lg shadow-amber-500/30">
+            <img src="/static/images/perfiles/dueño.jpeg" alt="Dominic Ariza" class="w-full h-full object-cover">
+          </div>
+          <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[11px] font-rajdhani tracking-[0.2em] uppercase bg-amber-500 text-black">Barber Freestyle Lead</div>
+        </div>
+
+        <div>
+          <p class="font-rajdhani text-sm tracking-widest uppercase mb-2 text-amber-400">Nosotros</p>
+          <h3 class="font-bebas text-4xl md:text-5xl tracking-wide mb-3">Dominic Ariza</h3>
+          <p class="text-zinc-400 font-inter text-sm md:text-base leading-relaxed mb-4">
+            Fundador de Barber Freestyle y barbero freestyle con más de 6 años metiendo
+            flow en cada corte. Especialista en diseños con navaja, degradados limpios y
+            arreglos de emergencia para rescatar cualquier mal corte.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700 text-[11px] font-rajdhani uppercase tracking-[0.18em]">Freestyle creativo</span>
+            <span class="px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700 text-[11px] font-rajdhani uppercase tracking-[0.18em]">Degradados precisos</span>
+            <span class="px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700 text-[11px] font-rajdhani uppercase tracking-[0.18em]">Arreglos de emergencia</span>
+          </div>
+          <p class="text-zinc-500 text-sm font-inter">
+            Su misión: que salgas de la silla sintiendo que llevas un corte que habla por ti,
+            con barras, flow y navajas.
+          </p>
         </div>
       </div>
     </div>
@@ -371,6 +402,41 @@
     </div>
   </section>
 
+  <!-- ═══ MAPA UBICACIÓN (debajo de TU MEJOR CORTE TE ESPERA) ═══ -->
+  <section class="pb-24 px-4" style="background:#0c0c0e">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="font-rajdhani text-xs uppercase tracking-widest section-label">// Encuéntranos aquí</span>
+        <div class="flex-1 h-px" style="background:linear-gradient(to right,rgba(249,115,22,0.4),transparent)"></div>
+      </div>
+      <div class="relative w-full overflow-hidden rounded-2xl" style="border:1px solid rgba(249,115,22,0.25);height:300px">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.1234!2d-73.6428!3d4.1420!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3e2e3e2e3e2e3e%3A0x1234567890abcdef!2sCra.+25+%2313-66%2C+Villavicencio%2C+Meta!5e0!3m2!1ses!2sco!4v1234567890"
+          width="100%"
+          height="300"
+          style="border:0;filter:grayscale(40%) contrast(1.1) invert(0.05);display:block"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación Barber Freestyle – tv. 25 # 13-66, Villavicencio">
+        </iframe>
+        <div class="absolute bottom-4 left-4 flex items-center gap-3 px-4 py-3 rounded-xl backdrop-blur-md"
+             style="background:rgba(9,9,11,0.85);border:1px solid rgba(249,115,22,0.3)">
+          <span style="color:#F97316" class="text-xl">📍</span>
+          <div>
+            <p class="font-bebas text-base tracking-wide text-white leading-none">Barber Freestyle</p>
+            <p class="font-inter text-xs text-zinc-400">tv. 25 # 13-66, Villavicencio</p>
+          </div>
+          <a href="https://maps.google.com/?q=tv.+25+%2313-66+Villavicencio+Colombia"
+             target="_blank"
+             class="ml-2 btn-urban-sm font-rajdhani uppercase tracking-widest text-xs px-3 py-1.5">
+            Abrir
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ FOOTER ═══ -->
   <footer class="pt-16 pb-8 px-4" style="background:#0c0c0e;border-top:1px solid #27272a">
     <div class="max-w-6xl mx-auto">
@@ -418,46 +484,18 @@
         </div>
       </div>
 
-      <!-- Mapa de ubicación -->
-      <div class="mb-10">
-        <div class="flex items-center gap-3 mb-4">
-          <span class="font-rajdhani text-xs uppercase tracking-widest section-label">// Encuéntranos aquí</span>
-          <div class="flex-1 h-px" style="background:linear-gradient(to right,rgba(249,115,22,0.4),transparent)"></div>
-        </div>
-        <div class="relative w-full overflow-hidden rounded-2xl" style="border:1px solid rgba(249,115,22,0.25);height:300px">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.1234!2d-73.6428!3d4.1420!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3e2e3e2e3e2e3e%3A0x1234567890abcdef!2sCra.+25+%2313-66%2C+Villavicencio%2C+Meta!5e0!3m2!1ses!2sco!4v1234567890"
-            width="100%"
-            height="300"
-            style="border:0;filter:grayscale(40%) contrast(1.1) invert(0.05);display:block"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Ubicación Barber Freestyle – tv. 25 # 13-66, Villavicencio">
-          </iframe>
-          <!-- Overlay info sobre el mapa -->
-          <div class="absolute bottom-4 left-4 flex items-center gap-3 px-4 py-3 rounded-xl backdrop-blur-md"
-               style="background:rgba(9,9,11,0.85);border:1px solid rgba(249,115,22,0.3)">
-            <span style="color:#F97316" class="text-xl">📍</span>
-            <div>
-              <p class="font-bebas text-base tracking-wide text-white leading-none">Barber Freestyle</p>
-              <p class="font-inter text-xs text-zinc-400">tv. 25 # 13-66, Villavicencio</p>
-            </div>
-            <a href="https://maps.google.com/?q=tv.+25+%2313-66+Villavicencio+Colombia"
-               target="_blank"
-               class="ml-2 btn-urban-sm font-rajdhani uppercase tracking-widest text-xs px-3 py-1.5">
-              Abrir
-            </a>
-          </div>
-        </div>
-      </div>
-
       <!-- Copyright -->
       <div class="pt-6 text-center" style="border-top:1px solid #27272a">
         <p class="font-rajdhani text-xs text-zinc-600 uppercase tracking-widest">© 2026 Barber Freestyle · Todos los derechos reservados</p>
       </div>
     </div>
   </footer>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a href="https://wa.me/573229026304" target="_blank" rel="noopener noreferrer"
+     class="fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full shadow-lg shadow-emerald-500/40 overflow-hidden bg-emerald-500 hover:scale-105 transition-transform">
+    <img src="/static/images/whatsapp1.png" alt="WhatsApp Barber Freestyle" class="w-full h-full object-contain">
+  </a>
 
   <script>
     const navbar = document.getElementById('navbar');
